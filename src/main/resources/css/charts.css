@@ -1,0 +1,590 @@
+/* ===== ROOT VARIABLES ===== */
+.root {
+    /* Color Palette */
+    -fx-primary-color: #2E7D32;
+    -fx-primary-light: #4CAF50;
+    -fx-primary-dark: #1B5E20;
+    -fx-secondary-color: #FF9800;
+    -fx-accent-color: #03DAC6;
+    -fx-success-color: #4CAF50;
+    -fx-warning-color: #FF9800;
+    -fx-error-color: #F44336;
+    
+    /* Background Colors */
+    -fx-background-primary: #FAFAFA;
+    -fx-background-secondary: #FFFFFF;
+    -fx-background-card: #FFFFFF;
+    
+    /* Text Colors */
+    -fx-text-primary: #212121;
+    -fx-text-secondary: #757575;
+    -fx-text-muted: #9E9E9E;
+    
+    /* Border Colors */
+    -fx-border-light: #E0E0E0;
+    -fx-border-medium: #BDBDBD;
+    
+    /* Shadow */
+    -fx-shadow-color: rgba(0, 0, 0, 0.1);
+    
+    /* Border Radius */
+    -fx-border-radius: 8px;
+    -fx-card-radius: 12px;
+}
+
+/* ===== BASE STYLES ===== */
+.main-content {
+    -fx-background-color: -fx-background-primary;
+}
+
+/* ===== HEADER SECTION ===== */
+.header-section {
+    -fx-background-color: -fx-background-secondary;
+    -fx-border-color: -fx-border-light;
+    -fx-border-width: 0 0 1 0;
+}
+
+.main-title {
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-weight: bold;
+}
+
+.date-range-label {
+    -fx-text-fill: -fx-text-secondary;
+}
+
+/* ===== NAVIGATION ===== */
+.navigation-bar {
+    -fx-spacing: 5;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-secondary;
+    -fx-padding: 12 20 12 20;
+    -fx-border-radius: -fx-border-radius;
+    -fx-background-radius: -fx-border-radius;
+    -fx-font-weight: 500;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-width: 2;
+}
+
+.nav-button:hover {
+    -fx-background-color: rgba(76, 175, 80, 0.1);
+    -fx-text-fill: -fx-primary-color;
+}
+
+.nav-button.active {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.nav-button.active:hover {
+    -fx-background-color: -fx-primary-dark;
+}
+
+/* ===== SUMMARY CARDS ===== */
+.summary-cards {
+    -fx-spacing: 20;
+}
+
+.summary-card {
+    -fx-background-color: -fx-background-card;
+    -fx-padding: 20;
+    -fx-background-radius: -fx-card-radius;
+    -fx-border-radius: -fx-card-radius;
+    -fx-effect: dropshadow(gaussian, -fx-shadow-color, 4, 0.2, 0, 2);
+    -fx-spacing: 8;
+    -fx-alignment: top-left;
+    -fx-border-color: -fx-border-light;
+    -fx-border-width: 1;
+}
+
+.summary-card:hover {
+    -fx-effect: dropshadow(gaussian, -fx-shadow-color, 8, 0.3, 0, 4);
+}
+
+.card-title {
+    -fx-text-fill: -fx-text-secondary;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+}
+
+.card-value {
+    -fx-text-fill: -fx-primary-color;
+    -fx-font-weight: bold;
+}
+
+.card-unit {
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-size: 12px;
+}
+
+.card-equivalent {
+    -fx-text-fill: -fx-text-secondary;
+    -fx-font-size: 12px;
+    -fx-font-style: italic;
+}
+
+.card-equivalent.positive {
+    -fx-text-fill: -fx-success-color;
+    -fx-font-weight: 500;
+}
+
+/* ===== FILTERS SECTION ===== */
+.filters-section {
+    -fx-background-color: -fx-background-card;
+    -fx-padding: 20;
+    -fx-background-radius: -fx-border-radius;
+    -fx-border-radius: -fx-border-radius;
+    -fx-border-color: -fx-border-light;
+    -fx-border-width: 1;
+}
+
+.filter-label {
+    -fx-text-fill: -fx-text-primary;
+}
+
+.filter-radio {
+    -fx-text-fill: -fx-text-secondary;
+    -fx-font-size: 13px;
+}
+
+.filter-radio:selected .radio {
+    -fx-background-color: -fx-primary-color;
+}
+
+.filter-combo {
+    -fx-background-color: -fx-background-secondary;
+    -fx-border-color: -fx-border-medium;
+    -fx-border-radius: -fx-border-radius;
+    -fx-background-radius: -fx-border-radius;
+    -fx-padding: 8 12;
+}
+
+.filter-combo:focused {
+    -fx-border-color: -fx-primary-color;
+    -fx-border-width: 2;
+}
+
+.action-button {
+    -fx-padding: 10 16;
+    -fx-border-radius: -fx-border-radius;
+    -fx-background-radius: -fx-border-radius;
+    -fx-font-weight: 500;
+    -fx-cursor: hand;
+    -fx-border-width: 1;
+}
+
+.action-button.primary {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+    -fx-border-color: -fx-primary-color;
+}
+
+.action-button.primary:hover {
+    -fx-background-color: -fx-primary-dark;
+    -fx-border-color: -fx-primary-dark;
+}
+
+.action-button.secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-primary-color;
+    -fx-border-color: -fx-primary-color;
+}
+
+.action-button.secondary:hover {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+
+/* ===== CHARTS SECTION ===== */
+.charts-section {
+    -fx-spacing: 20;
+}
+
+.chart-container {
+    -fx-background-color: -fx-background-card;
+    -fx-padding: 20;
+    -fx-background-radius: -fx-card-radius;
+    -fx-border-radius: -fx-card-radius;
+    -fx-effect: dropshadow(gaussian, -fx-shadow-color, 4, 0.2, 0, 2);
+    -fx-spacing: 15;
+    -fx-border-color: -fx-border-light;
+    -fx-border-width: 1;
+}
+
+.chart-title {
+    -fx-text-fill: -fx-text-primary;
+}
+
+/* ===== INDIVIDUAL CHART STYLES ===== */
+
+/* Line Chart */
+.trend-chart .chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.trend-chart .chart-vertical-grid-lines {
+    -fx-stroke: -fx-border-light;
+    -fx-stroke-width: 0.5;
+}
+
+.trend-chart .chart-horizontal-grid-lines {
+    -fx-stroke: -fx-border-light;
+    -fx-stroke-width: 0.5;
+}
+
+.trend-chart .chart-series-line {
+    -fx-stroke: -fx-primary-color;
+    -fx-stroke-width: 3;
+}
+
+.trend-chart .chart-line-symbol {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 6;
+    -fx-padding: 6;
+}
+
+/* Pie Chart */
+.pie-chart .chart-pie-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: -fx-text-primary;
+}
+
+/* Default pie slice colors */
+.data0.chart-pie { -fx-pie-color: -fx-primary-color; }
+.data1.chart-pie { -fx-pie-color: -fx-secondary-color; }
+.data2.chart-pie { -fx-pie-color: -fx-accent-color; }
+.data3.chart-pie { -fx-pie-color: #9C27B0; }
+.data4.chart-pie { -fx-pie-color: #607D8B; }
+
+/* Bar Chart */
+.bar-chart .chart-bar {
+    -fx-background-color: -fx-primary-color;
+}
+
+.bar-chart .data1.chart-bar {
+    -fx-background-color: -fx-primary-light;
+}
+
+.bar-chart .chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.bar-chart .chart-vertical-grid-lines,
+.bar-chart .chart-horizontal-grid-lines {
+    -fx-stroke: -fx-border-light;
+    -fx-stroke-width: 0.5;
+}
+
+/* Area Chart */
+.area-chart .chart-series-area-fill {
+    -fx-fill: rgba(76, 175, 80, 0.3);
+}
+
+.area-chart .chart-series-area-line {
+    -fx-stroke: -fx-primary-color;
+    -fx-stroke-width: 2;
+}
+
+.area-chart .chart-line-symbol {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 4;
+    -fx-padding: 4;
+}
+
+/* ===== ACTIVITIES LIST ===== */
+.activities-list {
+    -fx-spacing: 8;
+}
+
+.activity-item {
+    -fx-padding: 12;
+    -fx-background-color: rgba(224, 224, 224, 0.3);
+    -fx-background-radius: -fx-border-radius;
+    -fx-border-radius: -fx-border-radius;
+}
+
+.activity-item:hover {
+    -fx-background-color: rgba(76, 175, 80, 0.1);
+}
+
+.activity-name {
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-weight: 500;
+    -fx-font-size: 13px;
+}
+
+.activity-details {
+    -fx-text-fill: -fx-text-secondary;
+    -fx-font-size: 11px;
+}
+
+.activity-value {
+    -fx-text-fill: -fx-primary-color;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* ===== GOALS SECTION ===== */
+.goals-summary {
+    -fx-background-color: rgba(224, 224, 224, 0.2);
+    -fx-padding: 16;
+    -fx-background-radius: -fx-border-radius;
+    -fx-border-radius: -fx-border-radius;
+}
+
+.goal-label {
+    -fx-text-fill: -fx-text-secondary;
+}
+
+.goal-title {
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.goal-progress {
+    -fx-text-fill: -fx-success-color;
+    -fx-font-weight: 500;
+}
+
+.goal-remaining {
+    -fx-text-fill: -fx-warning-color;
+    -fx-font-weight: 500;
+}
+
+.goal-time {
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-size: 12px;
+}
+
+.goal-progress-bar {
+    -fx-accent: -fx-primary-color;
+}
+
+.goal-progress-bar .bar {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 10;
+    -fx-padding: 4;
+}
+
+.goal-progress-bar .track {
+    -fx-background-color: -fx-border-light;
+    -fx-background-radius: 10;
+}
+
+/* ===== NOTIFICATIONS ===== */
+.notification-container {
+    -fx-background-color: rgba(0, 0, 0, 0.8);
+}
+
+.notification {
+    -fx-background-color: -fx-success-color;
+    -fx-text-fill: white;
+    -fx-padding: 12 20;
+    -fx-background-radius: -fx-border-radius;
+    -fx-border-radius: -fx-border-radius;
+    -fx-font-weight: 500;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.3, 0, 2);
+}
+
+/* ===== SCROLLPANE ===== */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-pref-width: 8;
+}
+
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+    -fx-background-radius: 5;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+    -fx-background-radius: 5;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+}
+
+.scroll-pane .scroll-bar:vertical .increment-button,
+.scroll-pane .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-pref-height: 0;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+    -fx-padding: 10 0 0 0;
+}
+
+.chart-legend-item {
+    -fx-text-fill: -fx-text-secondary;
+    -fx-font-size: 12px;
+}
+
+.chart-legend-item-symbol {
+    -fx-background-radius: 3;
+    -fx-padding: 3;
+}
+
+/* ===== AXIS STYLING ===== */
+.axis {
+    -fx-tick-label-fill: -fx-text-secondary;
+    -fx-tick-label-font-size: 11px;
+}
+
+.axis .axis-label {
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-weight: 500;
+    -fx-font-size: 12px;
+}
+
+.axis-tick-mark {
+    -fx-stroke: -fx-border-medium;
+}
+
+.axis-minor-tick-mark {
+    -fx-stroke: -fx-border-light;
+}
+
+/* ===== COMBO BOX STYLING ===== */
+.combo-box-popup .list-view {
+    -fx-background-color: -fx-background-secondary;
+    -fx-border-color: -fx-border-medium;
+    -fx-border-radius: -fx-border-radius;
+    -fx-background-radius: -fx-border-radius;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.3, 0, 2);
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-text-fill: -fx-text-primary;
+    -fx-padding: 8 12;
+    -fx-background-color: transparent;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: rgba(76, 175, 80, 0.1);
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: -fx-text-secondary;
+}
+
+/* ===== RADIO BUTTON STYLING ===== */
+.radio-button .radio {
+    -fx-background-color: -fx-background-secondary;
+    -fx-border-color: -fx-border-medium;
+    -fx-border-width: 2;
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-padding: 3;
+}
+
+.radio-button:selected .radio {
+    -fx-border-color: -fx-primary-color;
+}
+
+.radio-button:selected .radio .dot {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 50%;
+}
+
+.radio-button:hover .radio {
+    -fx-border-color: -fx-primary-light;
+}
+
+/* ===== SEPARATOR STYLING ===== */
+.separator {
+    -fx-background-color: -fx-border-light;
+}
+
+.separator .line {
+    -fx-border-color: -fx-border-light;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* ===== BUTTON HOVER EFFECTS ===== */
+.button {
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0.2, 0, 1);
+}
+
+.button:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 2, 0.3, 0, 1);
+    -fx-translate-y: 1;
+}
+
+/* ===== FOCUS INDICATORS ===== */
+.button:focused,
+.combo-box:focused,
+.radio-button:focused {
+    -fx-background-insets: -2;
+    -fx-border-insets: -2;
+    -fx-effect: dropshadow(gaussian, rgba(76, 175, 80, 0.4), 0, 0, 0, 0),
+                innershadow(gaussian, rgba(76, 175, 80, 0.4), 2, 0, 0, 0);
+}
+
+/* ===== LOADING STATES ===== */
+.loading {
+    -fx-opacity: 0.6;
+}
+
+.loading .button,
+.loading .combo-box {
+    -fx-cursor: wait;
+}
+
+/* ===== ERROR STATES ===== */
+.error {
+    -fx-border-color: -fx-error-color !important;
+    -fx-border-width: 2 !important;
+}
+
+.error-text {
+    -fx-text-fill: -fx-error-color;
+    -fx-font-size: 12px;
+}
+
+/* ===== SUCCESS STATES ===== */
+.success {
+    -fx-border-color: -fx-success-color !important;
+    -fx-border-width: 2 !important;
+}
+
+.success-text {
+    -fx-text-fill: -fx-success-color;
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+}

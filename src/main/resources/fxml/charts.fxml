@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.ecohabit.controller.ChartsController">
+   <top>
+      <!-- Header Section with Navigation and Filters -->
+      <VBox styleClass="charts-header">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         
+         <!-- Title and Date Range -->
+         <HBox alignment="CENTER_LEFT" spacing="20.0">
+            <Label styleClass="page-title" text="📊 Analytics Dashboard">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+            
+            <Region HBox.hgrow="ALWAYS" />
+            
+            <Label fx:id="dateRangeLabel" styleClass="date-range-label" text="Loading...">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </HBox>
+         
+         <!-- Navigation Buttons -->
+         <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="nav-buttons">
+            <padding>
+               <Insets top="15.0" />
+            </padding>
+            
+            <Button fx:id="overviewBtn" styleClass="nav-btn, active" text="📈 Overview" />
+            <Button fx:id="trendsBtn" styleClass="nav-btn" text="📊 Trends" />
+            <Button fx:id="breakdownBtn" styleClass="nav-btn" text="🥧 Breakdown" />
+            <Button fx:id="comparisonBtn" styleClass="nav-btn" text="📉 Comparison" />
+            <Button fx:id="goalsBtn" styleClass="nav-btn" text="🎯 Goals" />
+            
+            <Region HBox.hgrow="ALWAYS" />
+            
+            <Button fx:id="exportChartBtn" styleClass="export-btn" text="📤 Export Data" />
+         </HBox>
+         
+         <!-- Filter Controls -->
+         <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="filter-controls">
+            <padding>
+               <Insets top="20.0" />
+            </padding>
+            
+            <!-- Time Range Selection -->
+            <VBox spacing="8.0">
+               <Label styleClass="filter-section-title" text="Time Range:">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font>
+               </Label>
+               
+               <HBox spacing="10.0">
+                  <RadioButton fx:id="weekRadio" styleClass="time-range-radio" text="Week" />
+                  <RadioButton fx:id="monthRadio" styleClass="time-range-radio" text="Month" />
+                  <RadioButton fx:id="quarterRadio" styleClass="time-range-radio" text="Quarter" />
+                  <RadioButton fx:id="yearRadio" styleClass="time-range-radio" text="Year" />
+                  <RadioButton fx:id="allTimeRadio" styleClass="time-range-radio" text="All Time" />
+               </HBox>
+            </VBox>
+            
+            <!-- Trend Granularity -->
+            <VBox spacing="8.0">
+               <Label styleClass="filter-section-title" text="Trend View:">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font>
+               </Label>
+               
+               <HBox spacing="10.0">
+                  <RadioButton fx:id="dailyTrendRadio" styleClass="trend-radio" text="Daily" />
+                  <RadioButton fx:id="weeklyTrendRadio" styleClass="trend-radio" text="Weekly" />
+                  <RadioButton fx:id="monthlyTrendRadio" styleClass="trend-radio" text="Monthly" />
+               </HBox>
+            </VBox>
+            
+            <!-- Category Filter -->
+            <VBox spacing="8.0">
+               <Label styleClass="filter-section-title" text="Category:">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font>
+               </Label>
+               <ComboBox fx:id="categoryComboBox" prefWidth="150.0" styleClass="category-combo" />
+            </VBox>
+            
+            <!-- Goals Timeframe -->
+            <VBox spacing="8.0">
+               <Label styleClass="filter-section-title" text="Goals Timeframe:">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font>
+               </Label>
+               <ComboBox fx:id="goalsTimeframeComboBox" prefWidth="120.0" styleClass="goals-combo" />
+            </VBox>
+            
+            <Region HBox.hgrow="ALWAYS" />
+            
+            <Button fx:id="applyFiltersBtn" styleClass="apply-filters-btn" text="Apply Filters" />
+         </HBox>
+      </VBox>
+   </top>
+   
+   <left>
+      <!-- Stats Sidebar -->
+      <VBox prefWidth="280.0" styleClass="stats-sidebar">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
+         </padding>
+         
+         <!-- Key Metrics -->
+         <VBox spacing="20.0" styleClass="key-metrics">
+            <Label styleClass="sidebar-section-title" text="Key Metrics">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            
+            <!-- Total CO2 Savings -->
+            <VBox spacing="5.0" styleClass="metric-card">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               
+               <Label styleClass="metric-title" text="Total CO₂ Savings (kg)" />
+               <HBox alignment="BASELINE_LEFT" spacing="5.0">
+                  <Label fx:id="totalCO2Label" styleClass="metric-value-large" text="0">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label styleClass="metric-unit" text="kg" />
+               </HBox>
+               <Label fx:id="equivalentLabel" styleClass="metric-subtitle" text="≈ equivalent calculation" />
+            </VBox>
+            
+            <!-- Total Activities -->
+            <VBox spacing="5.0" styleClass="metric-card">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               
+               <Label styleClass="metric-title" text="Total Activities" />
+               <Label fx:id="totalActivitiesLabel" styleClass="metric-value" text="0">
+                  <font>
+                     <Font name="System Bold" size="24.0" />
+                  </font>
+               </Label>
+            </VBox>
+            
+            <!-- Current Streak -->
+            <VBox spacing="5.0" styleClass="metric-card">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               
+               <Label styleClass="metric-title" text="Current Streak" />
+               <Label fx:id="currentStreakLabel" styleClass="metric-value" text="0 days">
+                  <font>
+                     <Font name="System Bold" size="24.0" />
+                  </font>
+               </Label>
+            </VBox>
+         </VBox>
+         
+         <Separator />
+         
+         <!-- Weekly Summary -->
+         <VBox spacing="15.0" styleClass="weekly-summary">
+            <padding>
+               <Insets top="20.0" />
+            </padding>
+            
+            <Label styleClass="sidebar-section-title" text="This Week">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            
+            <VBox spacing="10.0">
+               <HBox alignment="CENTER_LEFT" spacing="10.0">
+                  <Label styleClass="summary-label" text="CO₂ Savings:" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label fx:id="weeklyCO2Label" styleClass="summary-value" text="0 kg" />
+               </HBox>
+               
+               <Label fx:id="weeklyChangeLabel" styleClass="change-label" text="No change from last week" />
+            </VBox>
+         </VBox>
+         
+         <Separator />
+         
+         <!-- Top Category -->
+         <VBox spacing="15.0" styleClass="top-category">
+            <padding>
+               <Insets top="20.0" />
+            </padding>
+            
+            <Label styleClass="sidebar-section-title" text="Top Category">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            
+            <VBox spacing="8.0">
+               <Label fx:id="topCategoryLabel" styleClass="category-name" text="Loading..." />
+               <Label fx:id="topCategoryValue" styleClass="category-value" text="0 kg" />
+            </VBox>
+         </VBox>
+         
+         <Separator />
+         
+         <!-- Goal Progress -->
+         <VBox spacing="15.0" styleClass="goal-progress">
+            <padding>
+               <Insets top="20.0" />
+            </padding>
+            
+            <Label styleClass="sidebar-section-title" text="Goal Progress">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            
+            <VBox spacing="8.0">
+               <HBox alignment="CENTER_LEFT" spacing="10.0">
+                  <Label styleClass="goal-label" text="Progress:" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label fx:id="goalProgressLabel" styleClass="goal-value" text="0%" />
+               </HBox>
+               
+               <Label fx:id="goalRemainingLabel" styleClass="goal-remaining" text="0 kg remaining" />
+               
+               <!-- Progress Bar -->
+               <ProgressBar prefWidth="200.0" progress="0.0" styleClass="goal-progress-bar" />
+            </VBox>
+         </VBox>
+         
+         <!-- Top Activities Container -->
+         <VBox fx:id="topActivitiesContainer" spacing="10.0" styleClass="top-activities">
+            <padding>
+               <Insets top="20.0" />
+            </padding>
+            
+            <Label styleClass="sidebar-section-title" text="Top Activities">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </VBox>
+         
+         <Region VBox.vgrow="ALWAYS" />
+      </VBox>
+   </left>
+   
+   <center>
+      <!-- Main Charts Area -->
+      <VBox styleClass="charts-main-area">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+         
+         <!-- Charts Grid -->
+         <ScrollPane fitToWidth="true" styleClass="charts-scroll-pane" VBox.vgrow="ALWAYS">
+            <GridPane hgap="20.0" styleClass="charts-grid" vgap="20.0">
+               <padding>
+                  <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               
+               <!-- Trend Chart (Top Left) -->
+               <VBox spacing="10.0" styleClass="chart-container" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  </padding>
+                  
+                  <Label styleClass="chart-title" text="📈 CO₂ Savings Trend">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  
+                  <LineChart fx:id="trendChart" prefHeight="300.0" prefWidth="400.0" styleClass="trend-chart">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                  </LineChart>
+               </VBox>
+               
+               <!-- Activity Pie Chart (Top Right) -->
+               <VBox spacing="10.0" styleClass="chart-container" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  </padding>
+                  
+                  <Label styleClass="chart-title" text="🥧 Activity Breakdown">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  
+                  <PieChart fx:id="activityPieChart" prefHeight="300.0" prefWidth="400.0" styleClass="pie-chart" />
+               </VBox>
+               
+               <!-- Category Bar Chart (Bottom Left) -->
+               <VBox spacing="10.0" styleClass="chart-container" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  </padding>
+                  
+                  <Label styleClass="chart-title" text="📊 Category Comparison">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  
+                  <BarChart fx:id="categoryBarChart" prefHeight="300.0" prefWidth="400.0" styleClass="bar-chart">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                  </BarChart>
+               </VBox>
+               
+               <!-- Goals Progress Chart (Bottom Right) -->
+               <VBox spacing="10.0" styleClass="chart-container" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  </padding>
+                  
+                  <Label styleClass="chart-title" text="🎯 Goals Progress">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  
+                  <AreaChart fx:id="goalsChart" prefHeight="300.0" prefWidth="400.0" styleClass="area-chart">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                  </AreaChart>
+               </VBox>
+               
+               <!-- Column constraints for responsive layout -->
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="450.0" prefWidth="450.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="450.0" prefWidth="450.0" />
+               </columnConstraints>
+               
+               <!-- Row constraints -->
+               <rowConstraints>
+                  <RowConstraints minHeight="350.0" prefHeight="350.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="350.0" prefHeight="350.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </ScrollPane>
+      </VBox>
+   </center>
+   
+   <bottom>
+      <!-- Notification Area -->
+      <VBox fx:id="notificationContainer" maxHeight="100.0" styleClass="notification-area" visible="false">
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </VBox>
+   </bottom>
+</BorderPane>

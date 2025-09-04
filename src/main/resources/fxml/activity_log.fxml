@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.ecohabit.controller.ActivityLogController">
+   <left>
+      <!-- Sidebar -->
+      <VBox spacing="15.0" styleClass="sidebar">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         
+         <!-- Daily Summary Section -->
+         <VBox spacing="10.0" styleClass="daily-summary-section">
+            <Label styleClass="section-header" text="Daily Summary" />
+            
+            <VBox spacing="8.0" styleClass="summary-metrics">
+               <HBox alignment="CENTER_LEFT" spacing="5.0">
+                  <Label text="CO₂ Saved:" />
+                  <Label fx:id="dailyCO2Label" styleClass="metric-value" text="0.0 kg" />
+               </HBox>
+               
+               <HBox alignment="CENTER_LEFT" spacing="5.0">
+                  <Label text="Equivalent:" />
+                  <Label fx:id="dailyEquivalentLabel" styleClass="metric-equivalent" text="≈ planting 0 trees" />
+               </HBox>
+               
+               <HBox alignment="CENTER_LEFT" spacing="5.0">
+                  <Label text="Activities:" />
+                  <Label fx:id="dailyActivitiesLabel" styleClass="metric-value" text="0" />
+               </HBox>
+               
+               <HBox alignment="CENTER_LEFT" spacing="5.0">
+                  <Label text="Streak:" />
+                  <Label fx:id="currentStreakLabel" styleClass="metric-value" text="0 days" />
+               </HBox>
+            </VBox>
+         </VBox>
+         
+         <Separator />
+         
+         <!-- Filter Buttons Section -->
+         <VBox spacing="10.0" styleClass="filter-section">
+            <Label styleClass="section-header" text="Quick Filters" />
+            
+            <VBox spacing="5.0">
+               <Button fx:id="todayBtn" styleClass="filter-btn active" text="Today" />
+               <Button fx:id="yesterdayBtn" styleClass="filter-btn" text="Yesterday" />
+               <Button fx:id="thisWeekBtn" styleClass="filter-btn" text="This Week" />
+               <Button fx:id="customDateBtn" styleClass="filter-btn" text="Custom Date Range" />
+            </VBox>
+         </VBox>
+         
+         <Separator />
+         
+         <!-- Filter Options Section -->
+         <VBox spacing="10.0" styleClass="filter-options-section">
+            <Label styleClass="section-header" text="Filter Options" />
+            
+            <VBox spacing="8.0">
+               <Label text="Date Range:" />
+               <DatePicker fx:id="startDatePicker" promptText="Start Date" />
+               <DatePicker fx:id="endDatePicker" promptText="End Date" />
+               
+               <Label text="Category:" />
+               <ComboBox fx:id="categoryFilterComboBox" prefWidth="180.0" promptText="All Categories" />
+               
+               <Label text="Sort By:" />
+               <ComboBox fx:id="sortComboBox" prefWidth="180.0" promptText="Date (Newest First)" />
+               
+               <HBox spacing="5.0">
+                  <Button fx:id="applyFiltersBtn" styleClass="primary-btn" text="Apply" />
+                  <Button fx:id="clearFiltersBtn" styleClass="secondary-btn" text="Clear" />
+               </HBox>
+            </VBox>
+         </VBox>
+         
+         <Separator />
+         
+         <!-- Quick Actions Section -->
+         <VBox spacing="10.0" styleClass="quick-actions-section">
+            <Label styleClass="section-header" text="Quick Actions" />
+            
+            <VBox spacing="5.0">
+               <Button fx:id="quickAddBtn" styleClass="action-btn" text="Quick Add Activity" />
+               <Button fx:id="exportLogBtn" styleClass="action-btn" text="Export Log" />
+               <Button fx:id="viewStatsBtn" styleClass="action-btn" text="View Statistics" />
+            </VBox>
+         </VBox>
+         
+         <Region VBox.vgrow="ALWAYS" />
+      </VBox>
+   </left>
+   
+   <center>
+      <!-- Main Content Area -->
+      <VBox spacing="15.0" styleClass="main-content">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         
+         <!-- Notification Container -->
+         <VBox fx:id="notificationContainer" spacing="5.0" visible="false" />
+         
+         <!-- Header Section -->
+         <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="content-header">
+            <Label fx:id="selectedDateLabel" styleClass="date-label" text="Today" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="addActivityBtn" styleClass="primary-btn" text="Add Activity" />
+         </HBox>
+         
+         <!-- Add Activity Form (Hidden by default) -->
+         <VBox fx:id="addActivityForm" spacing="15.0" styleClass="add-activity-form" visible="false">
+            <Label styleClass="form-title" text="Add New Activity" />
+            
+            <GridPane hgap="15.0" vgap="10.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+               </columnConstraints>
+               
+               <Label text="Activity Type:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+               <ComboBox fx:id="activityTypeComboBox" prefWidth="200.0" promptText="Select activity type" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+               
+               <Label text="Quantity:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+               <TextField fx:id="quantityField" promptText="Enter quantity" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+               
+               <Label text="Unit:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+               <ComboBox fx:id="unitComboBox" prefWidth="200.0" promptText="Select unit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               
+               <Label text="CO₂ Saved (kg):" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+               <TextField fx:id="co2Field" promptText="Auto-calculated" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+               
+               <Label text="Custom Activity:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+               <TextField fx:id="customActivityField" promptText="Enter custom activity" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+               
+               <Label text="Notes:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+               <TextField fx:id="notesField" promptText="Optional notes" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+            </GridPane>
+            
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+               <Button fx:id="cancelAddBtn" styleClass="secondary-btn" text="Cancel" />
+               <Button fx:id="saveActivityBtn" styleClass="primary-btn" text="Save Activity" />
+            </HBox>
+         </VBox>
+         
+         <!-- Activities List Container -->
+         <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
+            <content>
+               <VBox spacing="10.0">
+                  <!-- Activities Container -->
+                  <VBox fx:id="activitiesContainer" spacing="10.0" styleClass="activities-list" />
+                  
+                  <!-- Empty State -->
+                  <VBox fx:id="emptyState" alignment="CENTER" spacing="20.0" styleClass="empty-state" visible="false">
+                     <Label styleClass="empty-state-title" text="No Activities Found" />
+                     <Label styleClass="empty-state-message" text="Start logging your eco-friendly activities to track your environmental impact!" wrapText="true" />
+                     <Button fx:id="addFirstActivityBtn" styleClass="primary-btn" text="Add Your First Activity" />
+                  </VBox>
+               </VBox>
+            </content>
+         </ScrollPane>
+         
+         <!-- Pagination Controls -->
+         <HBox alignment="CENTER" spacing="10.0" styleClass="pagination-controls">
+            <Button fx:id="prevPageBtn" styleClass="pagination-btn" text="Previous" />
+            <Label fx:id="pageLabel" styleClass="page-indicator" text="1 / 1" />
+            <Button fx:id="nextPageBtn" styleClass="pagination-btn" text="Next" />
+         </HBox>
+      </VBox>
+   </center>
+</BorderPane>

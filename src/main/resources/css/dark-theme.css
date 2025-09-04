@@ -1,0 +1,2078 @@
+/* dark.css - Complete Black Dark Theme for EcoHabit */
+
+.root {
+    -fx-base: #000000;
+    -fx-background: #000000;
+    -fx-color: derive(-fx-base, 10%);
+    -fx-control-inner-background: #121212;
+    -fx-control-inner-background-alt: derive(-fx-control-inner-background, 10%);
+    -fx-light-text-color: #f8f9fa;
+    -fx-mid-text-color: #ced4da;
+    -fx-dark-text-color: #6c757d;
+    -fx-accent: #00c853;
+    -fx-focus-color: #00e676;
+    -fx-faint-focus-color: rgba(0, 230, 118, 0.2);
+}
+
+/* Text colors */
+.text, .label, .button, .check-box, .radio-button, .toggle-button, .choice-box,
+.combo-box, .list-cell, .table-cell, .tree-cell, .tab, .menu-button, .menu-item {
+    -fx-text-fill: #f8f9fa;
+}
+
+/* Backgrounds */
+.border-pane, .vbox, .hbox, .grid-pane, .stack-pane, .scroll-pane, .pane {
+    -fx-background-color: #000000;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: #000000;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #333333;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.button:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.button:pressed {
+    -fx-background-color: #1c1c1c;
+}
+
+.button:focused {
+    -fx-border-color: #00e676;
+    -fx-border-width: 2;
+}
+
+.primary-button {
+    -fx-background-color: #00c853;
+    -fx-text-fill: #000000;
+}
+
+.primary-button:hover {
+    -fx-background-color: #00e676;
+}
+
+.primary-button:pressed {
+    -fx-background-color: #00b34d;
+}
+
+/* Text fields */
+.text-field, .password-field, .text-area, .combo-box, .choice-box, .spinner {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+    -fx-text-fill: #f8f9fa;
+    -fx-prompt-text-fill: #6c757d;
+}
+
+.text-field:focused, .password-field:focused, .text-area:focused {
+    -fx-border-color: #00e676;
+}
+
+/* Lists, tables, trees */
+.list-view, .tree-view, .table-view, .tree-table-view {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+}
+
+.list-cell, .tree-cell, .table-row-cell {
+    -fx-background-color: #000000;
+    -fx-text-fill: #f8f9fa;
+    -fx-border-color: #1a1a1a;
+}
+
+.list-cell:filled:selected, .tree-cell:filled:selected, .table-row-cell:filled:selected {
+    -fx-background-color: #1e3a1e;
+    -fx-text-fill: #f8f9fa;
+}
+
+.list-cell:filled:hover, .tree-cell:filled:hover, .table-row-cell:filled:hover {
+    -fx-background-color: #1a1a1a;
+}
+
+/* Tabs */
+.tab-pane {
+    -fx-background-color: #000000;
+}
+
+.tab {
+    -fx-background-color: #1a1a1a;
+    -fx-background-insets: 0 1 0 1, 0, 0;
+}
+
+.tab:selected {
+    -fx-background-color: #121212;
+    -fx-border-color: #00c853;
+    -fx-border-width: 0 0 2 0;
+}
+
+.tab-pane *.tab-header-background {
+    -fx-background-color: #000000;
+}
+
+.tab-label {
+    -fx-text-fill: #f8f9fa;
+}
+
+/* Charts */
+.chart {
+    -fx-background-color: #000000;
+}
+
+.chart-plot-background {
+    -fx-background-color: #121212;
+}
+
+.chart-title {
+    -fx-text-fill: #f8f9fa;
+}
+
+.axis {
+    -fx-tick-label-fill: #ced4da;
+}
+
+.axis-label {
+    -fx-text-fill: #ced4da;
+}
+
+.chart-legend {
+    -fx-background-color: #1a1a1a;
+}
+
+.chart-legend-item {
+    -fx-text-fill: #f8f9fa;
+}
+
+/* Menu bar */
+.menu-bar {
+    -fx-background-color: #1a1a1a;
+}
+
+.menu-bar .menu {
+    -fx-background-color: #1a1a1a;
+}
+
+.menu-bar .menu:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.menu-bar .menu:showing {
+    -fx-background-color: #2a2a2a;
+}
+
+.menu-item {
+    -fx-background-color: #1a1a1a;
+}
+
+.menu-item:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.context-menu {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #333333;
+}
+
+/* Progress bars */
+.progress-bar {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #333333;
+}
+
+.progress-bar .track {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #333333;
+}
+
+.progress-bar .bar {
+    -fx-background-color: #00c853;
+}
+
+/* Sliders */
+.slider .track {
+    -fx-background-color: #333333;
+}
+
+.slider .thumb {
+    -fx-background-color: #f8f9fa;
+}
+
+/* Check boxes and radio buttons */
+.check-box .box, .radio-button .radio {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+}
+
+.check-box:selected .mark, .radio-button:selected .dot {
+    -fx-background-color: #00c853;
+}
+
+/* Scroll bars */
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: #000000;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #333333;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #444444;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: #000000;
+}
+
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+    -fx-background-color: #ced4da;
+}
+
+/* Separators */
+.separator .line {
+    -fx-border-color: #333333;
+}
+
+/* Tooltips */
+.tooltip {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #f8f9fa;
+    -fx-border-color: #333333;
+}
+
+/* Specific component styles for EcoHabit */
+.glass-sidebar, .glass-card {
+    -fx-background-color: rgba(26, 26, 26, 0.8);
+    -fx-background-radius: 10;
+    -fx-border-color: rgba(51, 51, 51, 0.5);
+    -fx-border-radius: 10;
+}
+
+.stats-card {
+    -fx-background-color: rgba(26, 26, 26, 0.9);
+    -fx-background-radius: 8;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8;
+}
+
+.metric-card {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(0, 200, 83, 0.4);
+    -fx-border-radius: 8;
+}
+
+.modern-progress-bar .track {
+    -fx-background-color: #1a1a1a;
+    -fx-background-radius: 5;
+}
+
+.modern-progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, #00c853, #00e676);
+    -fx-background-radius: 5;
+}
+
+.achievement-card {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 8;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8;
+}
+
+.modern-text-field {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+    -fx-border-radius: 5;
+    -fx-text-fill: #f8f9fa;
+    -fx-prompt-text-fill: #6c757d;
+}
+
+.modern-text-field:focused {
+    -fx-border-color: #00e676;
+}
+
+.modern-button {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #f8f9fa;
+    -fx-border-color: #333333;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.modern-button:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.floating-action-button {
+    -fx-background-color: #00c853;
+    -fx-text-fill: #000000;
+    -fx-background-radius: 50%;
+    -fx-min-width: 50;
+    -fx-min-height: 50;
+    -fx-max-width: 50;
+    -fx-max-height: 50;
+}
+
+.floating-action-button:hover {
+    -fx-background-color: #00e676;
+}
+
+.title-large {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+}
+
+.title-medium {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.subtitle {
+    -fx-text-fill: #ced4da;
+    -fx-font-size: 14;
+}
+
+.body-text {
+    -fx-text-fill: #ced4da;
+    -fx-font-size: 12;
+}
+
+.accent-text {
+    -fx-text-fill: #00c853;
+    -fx-font-size: 12;
+}
+
+/* Status indicators */
+.status-container {
+    -fx-background-color: rgba(198, 40, 40, 0.2);
+    -fx-border-color: #c62828;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.status-message {
+    -fx-text-fill: #ef9a9a;
+}
+
+/* Form sections */
+.form-section {
+    -fx-background-color: rgba(26, 26, 26, 0.5);
+    -fx-background-radius: 8;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8;
+    -fx-padding: 15;
+}
+
+.form-field {
+    -fx-spacing: 5;
+}
+
+.field-label {
+    -fx-text-fill: #ced4da;
+    -fx-font-size: 13;
+    -fx-font-weight: bold;
+}
+
+.form-input {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+    -fx-text-fill: #f8f9fa;
+    -fx-prompt-text-fill: #6c757d;
+}
+
+.form-input:focused {
+    -fx-border-color: #00e676;
+}
+
+.error-text {
+    -fx-text-fill: #f44336;
+}
+
+/* Navigation */
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #ced4da;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.nav-button:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.1);
+}
+
+.nav-button.active {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+    -fx-text-fill: #00e676;
+}
+
+.logout-button {
+    -fx-background-color: rgba(244, 67, 54, 0.2);
+    -fx-text-fill: #f8f9fa;
+    -fx-border-color: rgba(244, 67, 54, 0.4);
+}
+
+.logout-button:hover {
+    -fx-background-color: rgba(244, 67, 54, 0.3);
+}
+
+/* Chat bubbles */
+.chat-bubble-user {
+    -fx-background-color: rgba(0, 200, 83, 0.3);
+    -fx-background-radius: 15 15 0 15;
+    -fx-padding: 10;
+}
+
+.chat-bubble-bot {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 15 15 15 0;
+    -fx-padding: 10;
+}
+
+/* Badge cards */
+.badge-card {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 10;
+    -fx-border-color: #333333;
+    -fx-border-radius: 10;
+}
+
+.badge-card.earned {
+    -fx-border-color: #00c853;
+}
+
+.badge-card.locked {
+    -fx-opacity: 0.6;
+}
+
+/* Override any specific background colors from the FXML files */
+.signup-branding-panel {
+    -fx-background-color: linear-gradient(to bottom, #000000, #0a200a);
+}
+
+.signup-form-panel {
+    -fx-background-color: #000000;
+}
+
+.header-section {
+    -fx-background-color: #000000;
+}
+
+.tip-of-day-container {
+    -fx-background-color: rgba(26, 26, 26, 0.8);
+    -fx-border-color: #333333;
+}
+
+.filter-section {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 1 0 1 0;
+}
+
+.sidebar {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 1 0 0;
+}
+
+.quick-categories {
+    -fx-background-color: transparent;
+}
+
+.category-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #ced4da;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.category-btn:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.1);
+}
+
+.statistics-section {
+    -fx-background-color: transparent;
+}
+
+.stat-label {
+    -fx-text-fill: #ced4da;
+}
+
+.stat-value {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-weight: bold;
+}
+
+.recommendations-section {
+    -fx-background-color: transparent;
+}
+
+.main-content {
+    -fx-background-color: #000000;
+}
+
+.featured-tips {
+    -fx-background-color: transparent;
+}
+
+.section-header {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.tips-container {
+    -fx-background-color: #000000;
+}
+
+.tip-card {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 8;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8;
+}
+
+.pagination-section {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 1 0 0 0;
+}
+
+.pagination-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ced4da;
+    -fx-border-color: #333333;
+}
+
+.pagination-btn:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.1);
+}
+
+.page-label {
+    -fx-text-fill: #ced4da;
+}
+
+.right-sidebar {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 0 0 1;
+}
+
+.quick-action-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ced4da;
+    -fx-border-color: #333333;
+}
+
+.quick-action-btn:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.1);
+}
+
+/* Activity log specific styles */
+.daily-summary-section {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 8;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8;
+}
+
+.filter-section, .filter-options-section, .quick-actions-section {
+    -fx-background-color: transparent;
+}
+
+.filter-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ced4da;
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.filter-btn:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.1);
+}
+
+.filter-btn.active {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+    -fx-text-fill: #00e676;
+}
+
+.content-header {
+    -fx-background-color: transparent;
+}
+
+.date-label {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.add-activity-form {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 8;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8;
+}
+
+.form-title {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.activities-list {
+    -fx-background-color: transparent;
+}
+
+.activity-item {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 8;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8;
+}
+
+.empty-state {
+    -fx-background-color: transparent;
+}
+
+.empty-state-title {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.empty-state-message {
+    -fx-text-fill: #ced4da;
+}
+
+.pagination-controls {
+    -fx-background-color: transparent;
+    -fx-border-color: #333333;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* Badges screen specific styles */
+.statistics-bar {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 0 1 0;
+}
+
+.stat-box {
+    -fx-background-color: transparent;
+}
+
+.stat-number {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+}
+
+.stat-label {
+    -fx-text-fill: #ced4da;
+}
+
+.progress-section {
+    -fx-background-color: transparent;
+}
+
+.progress-title {
+    -fx-text-fill: #ced4da;
+}
+
+.overall-progress .track {
+    -fx-background-color: #1a1a1a;
+}
+
+.overall-progress .bar {
+    -fx-background-color: #00c853;
+}
+
+.filter-bar {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 0 1 0;
+}
+
+.filter-label {
+    -fx-text-fill: #ced4da;
+}
+
+.filter-combo {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+    -fx-text-fill: #f8f9fa;
+}
+
+.search-field {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+    -fx-text-fill: #f8f9fa;
+    -fx-prompt-text-fill: #6c757d;
+}
+
+.search-button {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #ced4da;
+    -fx-border-color: #333333;
+}
+
+.search-button:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.filter-action-btn {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #ced4da;
+    -fx-border-color: #333333;
+}
+
+.filter-action-btn:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.filter-action-btn.secondary {
+    -fx-background-color: transparent;
+    -fx-border-color: #333333;
+}
+
+.badges-sidebar {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 1 0 0;
+}
+
+.featured-badge-section {
+    -fx-background-color: transparent;
+}
+
+.sidebar-title {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.featured-badge-card {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 10;
+    -fx-border-color: #333333;
+    -fx-border-radius: 10;
+}
+
+.featured-badge-icon {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 36;
+}
+
+.featured-badge-title {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.featured-badge-description {
+    -fx-text-fill: #ced4da;
+}
+
+.featured-progress .track {
+    -fx-background-color: #1a1a1a;
+}
+
+.featured-progress .bar {
+    -fx-background-color: #00c853;
+}
+
+.featured-progress-text {
+    -fx-text-fill: #ced4da;
+}
+
+.focus-badge-btn {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+    -fx-text-fill: #f8f9fa;
+    -fx-border-color: rgba(0, 200, 83, 0.4);
+}
+
+.focus-badge-btn:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.3);
+}
+
+.quick-stats-section {
+    -fx-background-color: transparent;
+}
+
+.stat-icon {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 16;
+}
+
+.category-stat-label {
+    -fx-text-fill: #ced4da;
+}
+
+.category-stat-number {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-weight: bold;
+}
+
+.recent-activity-section {
+    -fx-background-color: transparent;
+}
+
+.recent-activity-scroll {
+    -fx-background-color: transparent;
+}
+
+.recent-activity-item {
+    -fx-background-color: rgba(26, 26, 26, 0.5);
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+}
+
+.badges-main-area {
+    -fx-background-color: #000000;
+}
+
+.badges-tab-pane {
+    -fx-background-color: #000000;
+}
+
+.badges-tab {
+    -fx-background-color: #1a1a1a;
+}
+
+.badges-tab:selected {
+    -fx-background-color: #121212;
+    -fx-border-color: #00c853;
+    -fx-border-width: 0 0 2 0;
+}
+
+.badges-scroll-pane {
+    -fx-background-color: #000000;
+}
+
+.badges-grid {
+    -fx-background-color: #000000;
+}
+
+.badge-item {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 10;
+    -fx-border-color: #333333;
+    -fx-border-radius: 10;
+}
+
+.badge-item.earned {
+    -fx-border-color: #00c853;
+}
+
+.badge-item.locked {
+    -fx-opacity: 0.6;
+}
+
+.progress-badges-container {
+    -fx-background-color: #000000;
+}
+
+.celebration-overlay {
+    -fx-background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Charts screen specific styles */
+.charts-header {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 0 1 0;
+}
+
+.page-title {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 28;
+    -fx-font-weight: bold;
+}
+
+.date-range-label {
+    -fx-text-fill: #ced4da;
+}
+
+.nav-buttons {
+    -fx-background-color: transparent;
+}
+
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ced4da;
+    -fx-border-color: transparent;
+}
+
+.nav-btn:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.1);
+}
+
+.nav-btn.active {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+    -fx-text-fill: #00e676;
+}
+
+.export-btn {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #ced4da;
+    -fx-border-color: #333333;
+}
+
+.export-btn:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.filter-controls {
+    -fx-background-color: transparent;
+}
+
+.filter-section-title {
+    -fx-text-fill: #ced4da;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+
+.time-range-radio, .trend-radio {
+    -fx-text-fill: #ced4da;
+}
+
+.time-range-radio .radio, .trend-radio .radio {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+}
+
+.time-range-radio:selected .dot, .trend-radio:selected .dot {
+    -fx-background-color: #00c853;
+}
+
+.category-combo, .goals-combo {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+    -fx-text-fill: #f8f9fa;
+}
+
+.apply-filters-btn {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+    -fx-text-fill: #f8f9fa;
+    -fx-border-color: rgba(0, 200, 83, 0.4);
+}
+
+.apply-filters-btn:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.3);
+}
+
+.stats-sidebar {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 1 0 0;
+}
+
+.key-metrics {
+    -fx-background-color: transparent;
+}
+
+.sidebar-section-title {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.metric-card {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 8;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8;
+}
+
+.metric-title {
+    -fx-text-fill: #ced4da;
+}
+
+.metric-value-large {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 32;
+    -fx-font-weight: bold;
+}
+
+.metric-unit {
+    -fx-text-fill: #ced4da;
+}
+
+.metric-subtitle {
+    -fx-text-fill: #ced4da;
+}
+
+.metric-value {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+}
+
+.weekly-summary {
+    -fx-background-color: transparent;
+}
+
+.summary-label {
+    -fx-text-fill: #ced4da;
+}
+
+.summary-value {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-weight: bold;
+}
+
+.change-label {
+    -fx-text-fill: #ced4da;
+}
+
+.top-category {
+    -fx-background-color: transparent;
+}
+
+.category-name {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-weight: bold;
+}
+
+.category-value {
+    -fx-text-fill: #ced4da;
+}
+
+.goal-progress {
+    -fx-background-color: transparent;
+}
+
+.goal-label {
+    -fx-text-fill: #ced4da;
+}
+
+.goal-value {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-weight: bold;
+}
+
+.goal-remaining {
+    -fx-text-fill: #ced4da;
+}
+
+.goal-progress-bar .track {
+    -fx-background-color: #1a1a1a;
+}
+
+.goal-progress-bar .bar {
+    -fx-background-color: #00c853;
+}
+
+.top-activities {
+    -fx-background-color: transparent;
+}
+
+.top-activity-item {
+    -fx-background-color: rgba(26, 26, 26, 0.5);
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+}
+
+.charts-main-area {
+    -fx-background-color: #000000;
+}
+
+.charts-scroll-pane {
+    -fx-background-color: #000000;
+}
+
+.charts-grid {
+    -fx-background-color: #000000;
+}
+
+.chart-container {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 8;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8;
+}
+
+.chart-title {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.trend-chart, .pie-chart, .bar-chart, .area-chart {
+    -fx-background-color: #121212;
+}
+
+.notification-area {
+    -fx-background-color: rgba(26, 26, 26, 0.9);
+    -fx-border-color: #333333;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* Chatbot screen specific styles */
+.header-section {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 0 1 0;
+}
+
+.header-bar {
+    -fx-background-color: transparent;
+}
+
+.screen-title {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.status-label {
+    -fx-text-fill: #ced4da;
+}
+
+.mode-selector {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+    -fx-text-fill: #f8f9fa;
+}
+
+.action-button {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #ced4da;
+    -fx-border-color: #333333;
+}
+
+.action-button:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.quick-actions-bar {
+    -fx-background-color: transparent;
+}
+
+.quick-action-btn {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-text-fill: #ced4da;
+    -fx-border-color: #333333;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+.quick-action-btn:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+}
+
+.sidebar {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 1 0 0;
+}
+
+.chat-history-container {
+    -fx-background-color: transparent;
+}
+
+.new-chat-btn {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+    -fx-text-fill: #f8f9fa;
+    -fx-border-color: rgba(0, 200, 83, 0.4);
+}
+
+.new-chat-btn:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.3);
+}
+
+.sidebar-title {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.chat-history-list {
+    -fx-background-color: transparent;
+}
+
+.chat-history-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ced4da;
+}
+
+.chat-history-list .list-cell:filled:selected {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+    -fx-text-fill: #f8f9fa;
+}
+
+.chat-history-list .list-cell:filled:hover {
+    -fx-background-color: rgba(26, 26, 26, 0.5);
+}
+
+.sidebar-subtitle {
+    -fx-text-fill: #ced4da;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+
+.smart-suggestions-check-box {
+    -fx-text-fill: #ced4da;
+}
+
+.chat-area {
+    -fx-background-color: #000000;
+}
+
+.chat-container {
+    -fx-background-color: #000000;
+}
+
+.chat-bubble-user {
+    -fx-background-color: rgba(0, 200, 83, 0.3);
+    -fx-background-radius: 15 15 0 15;
+    -fx-padding: 10;
+}
+
+.chat-bubble-bot {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 15 15 15 0;
+    -fx-padding: 10;
+}
+
+.typing-area {
+    -fx-background-color: transparent;
+}
+
+.input-area {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 1 0 0 0;
+}
+
+.voice-button {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #ced4da;
+    -fx-border-color: #333333;
+    -fx-background-radius: 50%;
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-max-width: 40;
+    -fx-max-height: 40;
+}
+
+.voice-button:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.message-input {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+    -fx-text-fill: #f8f9fa;
+    -fx-prompt-text-fill: #6c757d;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+.message-input:focused {
+    -fx-border-color: #00e676;
+}
+
+.send-button {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+    -fx-text-fill: #f8f9fa;
+    -fx-border-color: rgba(0, 200, 83, 0.4);
+    -fx-background-radius: 50%;
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-max-width: 40;
+    -fx-max-height: 40;
+}
+
+.send-button:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.3);
+}
+
+.suggestion-area {
+    -fx-background-color: transparent;
+}
+
+.suggestion-scroll {
+    -fx-background-color: transparent;
+}
+
+.suggestion-button {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-text-fill: #ced4da;
+    -fx-border-color: #333333;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+.suggestion-button:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+}
+
+/* Settings screen specific styles */
+.settings-header {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 0 1 0;
+}
+
+.settings-sidebar {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 1 0 0;
+}
+
+.settings-nav-list {
+    -fx-background-color: transparent;
+}
+
+.settings-nav-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ced4da;
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.settings-nav-item:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.1);
+}
+
+.settings-nav-item.active {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+    -fx-text-fill: #00e676;
+}
+
+.settings-content {
+    -fx-background-color: #000000;
+}
+
+.settings-section {
+    -fx-background-color: transparent;
+}
+
+.settings-section-title {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+}
+
+.settings-card {
+    -fx-background-color: rgba(26, 26, 26, 0.7);
+    -fx-background-radius: 8;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8;
+}
+
+.settings-card-title {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.settings-card-description {
+    -fx-text-fill: #ced4da;
+}
+
+.settings-card-content {
+    -fx-background-color: transparent;
+}
+
+.settings-row {
+    -fx-background-color: transparent;
+}
+
+.settings-label {
+    -fx-text-fill: #ced4da;
+    -fx-font-weight: bold;
+}
+
+.settings-description {
+    -fx-text-fill: #6c757d;
+}
+
+.settings-control {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+    -fx-text-fill: #f8f9fa;
+}
+
+.settings-control:focused {
+    -fx-border-color: #00e676;
+}
+
+.settings-toggle {
+    -fx-text-fill: #ced4da;
+}
+
+.settings-toggle .box {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+}
+
+.settings-toggle:selected .mark {
+    -fx-background-color: #00c853;
+}
+
+.settings-button {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #ced4da;
+    -fx-border-color: #333333;
+}
+
+.settings-button:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.settings-button.primary {
+    -fx-background-color: rgba(0, 200, 83, 0.2);
+    -fx-text-fill: #f8f9fa;
+    -fx-border-color: rgba(0, 200, 83, 0.4);
+}
+
+.settings-button.primary:hover {
+    -fx-background-color: rgba(0, 200, 83, 0.3);
+}
+
+.settings-button.danger {
+    -fx-background-color: rgba(244, 67, 54, 0.2);
+    -fx-text-fill: #f8f9fa;
+    -fx-border-color: rgba(244, 67, 54, 0.4);
+}
+
+.settings-button.danger:hover {
+    -fx-background-color: rgba(244, 67, 54, 0.3);
+}
+
+.settings-divider {
+    -fx-border-color: #333333;
+}
+
+.account-info {
+    -fx-background-color: transparent;
+}
+
+.account-name {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.account-email {
+    -fx-text-fill: #ced4da;
+}
+
+.account-stats {
+    -fx-background-color: transparent;
+}
+
+.account-stat-label {
+    -fx-text-fill: #ced4da;
+}
+
+.account-stat-value {
+    -fx-text-fill: #f8f9fa;
+    -fx-font-weight: bold;
+}
+
+/* Ensure all scroll panes have dark backgrounds */
+.scroll-pane, .scroll-pane > .viewport {
+    -fx-background-color: #000000;
+}
+
+/* Ensure all text areas have dark backgrounds */
+.text-area, .text-area .content {
+    -fx-background-color: #121212;
+}
+
+/* Ensure all table views have dark backgrounds */
+.table-view, .table-view .column-header, .table-view .column-header-background {
+    -fx-background-color: #000000;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #ced4da;
+}
+
+/* Ensure all tree views have dark backgrounds */
+.tree-view, .tree-cell {
+    -fx-background-color: #000000;
+}
+
+/* Ensure all split panes have dark backgrounds */
+.split-pane, .split-pane-divider {
+    -fx-background-color: #000000;
+}
+
+/* Ensure all tab panes have dark backgrounds */
+.tab-pane, .tab-content-area {
+    -fx-background-color: #000000;
+}
+
+/* Ensure all toolbars have dark backgrounds */
+.tool-bar {
+    -fx-background-color: #1a1a1a;
+}
+
+/* Ensure all status bars have dark backgrounds */
+.status-bar {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #ced4da;
+}
+
+/* Ensure all dialogs have dark backgrounds */
+.dialog-pane {
+    -fx-background-color: #000000;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #1a1a1a;
+}
+
+.dialog-pane .content {
+    -fx-background-color: #000000;
+    -fx-text-fill: #f8f9fa;
+}
+
+.dialog-pane .button-bar {
+    -fx-background-color: #1a1a1a;
+}
+
+/* Ensure all alerts have dark backgrounds */
+.alert {
+    -fx-background-color: #000000;
+}
+
+.alert .header-panel {
+    -fx-background-color: #1a1a1a;
+}
+
+.alert .content {
+    -fx-background-color: #000000;
+    -fx-text-fill: #f8f9fa;
+}
+
+.alert .button-bar {
+    -fx-background-color: #1a1a1a;
+}
+
+/* Ensure all popups have dark backgrounds */
+.popup {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+}
+
+/* Ensure all context menus have dark backgrounds */
+.context-menu {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #333333;
+}
+
+.context-menu .menu-item {
+    -fx-background-color: #1a1a1a;
+}
+
+.context-menu .menu-item:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+/* Ensure all date pickers have dark backgrounds */
+.date-picker {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #1a1a1a;
+}
+
+.date-picker .text-field {
+    -fx-background-color: #121212;
+    -fx-border-color: transparent;
+}
+
+.date-picker-popup {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #333333;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #1a1a1a;
+}
+
+.date-picker-popup .spinner {
+    -fx-background-color: #1a1a1a;
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #f8f9fa;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.date-picker-popup .day-cell:selected {
+    -fx-background-color: #00c853;
+    -fx-text-fill: #000000;
+}
+
+/* Ensure all color pickers have dark backgrounds */
+.color-picker {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+}
+
+.color-picker .arrow-button {
+    -fx-background-color: #1a1a1a;
+}
+
+.color-picker .color-picker-label {
+    -fx-text-fill: #f8f9fa;
+}
+
+.color-palette {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #333333;
+}
+
+.color-palette .color-picker-grid {
+    -fx-background-color: #1a1a1a;
+}
+
+.color-palette .color-picker-grid .label {
+    -fx-text-fill: #f8f9fa;
+}
+
+/* Ensure all accordions have dark backgrounds */
+.accordion {
+    -fx-background-color: #000000;
+}
+
+.accordion .titled-pane {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #333333;
+}
+
+.accordion .titled-pane .title {
+    -fx-background-color: #1a1a1a;
+}
+
+.accordion .titled-pane .title .text {
+    -fx-text-fill: #f8f9fa;
+}
+
+.accordion .titled-pane .content {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+}
+
+/* Ensure all tooltips have dark backgrounds */
+.tooltip {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #f8f9fa;
+    -fx-border-color: #333333;
+}
+
+/* Ensure all progress indicators have dark backgrounds */
+.progress-indicator {
+    -fx-background-color: transparent;
+}
+
+.progress-indicator .percentage {
+    -fx-fill: #f8f9fa;
+}
+
+.progress-indicator .indicator {
+    -fx-background-color: #1a1a1a;
+}
+
+.progress-indicator .progress {
+    -fx-background-color: #00c853;
+}
+
+/* Ensure all spinners have dark backgrounds */
+.spinner {
+    -fx-background-color: #121212;
+    -fx-border-color: #333333;
+}
+
+.spinner .increment-arrow-button, .spinner .decrement-arrow-button {
+    -fx-background-color: #1a1a1a;
+}
+
+.spinner .increment-arrow, .spinner .decrement-arrow {
+    -fx-background-color: #ced4da;
+}
+
+.spinner .text-field {
+    -fx-background-color: #121212;
+    -fx-border-color: transparent;
+}
+
+/* Ensure all pagination controls have dark backgrounds */
+.pagination {
+    -fx-background-color: #000000;
+}
+
+.pagination .page {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #f8f9fa;
+}
+
+.pagination .page:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.pagination .page:selected {
+    -fx-background-color: #00c853;
+    -fx-text-fill: #000000;
+}
+
+.pagination .left-arrow, .pagination .right-arrow {
+    -fx-background-color: #1a1a1a;
+}
+
+.pagination .left-arrow:hover, .pagination .right-arrow:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+/* Ensure all HTML content has dark backgrounds */
+.html-editor {
+    -fx-background-color: #000000;
+}
+
+.html-editor .web-view {
+    -fx-background-color: #000000;
+}
+
+.html-editor .tool-bar {
+    -fx-background-color: #1a1a1a;
+}
+
+.html-editor .button {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #f8f9fa;
+}
+
+.html-editor .button:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+/* Ensure all media views have dark backgrounds */
+.media-view {
+    -fx-background-color: #000000;
+}
+
+.media-view .control-bar {
+    -fx-background-color: #1a1a1a;
+}
+
+.media-view .slider .track {
+    -fx-background-color: #333333;
+}
+
+.media-view .slider .thumb {
+    -fx-background-color: #f8f9fa;
+}
+
+/* Ensure all web views have dark backgrounds */
+.web-view {
+    -fx-background-color: #000000;
+}
+
+/* Ensure all embedded browsers have dark backgrounds */
+.browser {
+    -fx-background-color: #000000;
+}
+
+/* Override any inline styles that might interfere with the dark theme */
+* {
+    -fx-background: #000000 !important;
+    -fx-background-color: #000000 !important;
+    -fx-text-fill: #f8f9fa !important;
+    -fx-fill: #f8f9fa !important;
+    -fx-stroke: #f8f9fa !important;
+}
+
+/* Force all backgrounds to be dark */
+.background {
+    -fx-background-color: #000000 !important;
+}
+
+/* Force all text to be light */
+.text-light {
+    -fx-text-fill: #f8f9fa !important;
+}
+
+.text-muted {
+    -fx-text-fill: #6c757d !important;
+}
+
+/* Force all borders to be dark */
+.border {
+    -fx-border-color: #333333 !important;
+}
+
+/* Force all cards to be dark */
+.card {
+    -fx-background-color: rgba(26, 26, 26, 0.7) !important;
+}
+
+/* Force all buttons to be dark */
+.btn {
+    -fx-background-color: #1a1a1a !important;
+    -fx-text-fill: #f8f9fa !important;
+    -fx-border-color: #333333 !important;
+}
+
+.btn-primary {
+    -fx-background-color: rgba(0, 200, 83, 0.2) !important;
+    -fx-text-fill: #f8f9fa !important;
+    -fx-border-color: rgba(0, 200, 83, 0.4) !important;
+}
+
+/* Force all form controls to be dark */
+.form-control {
+    -fx-background-color: #121212 !important;
+    -fx-text-fill: #f8f9fa !important;
+    -fx-border-color: #333333 !important;
+}
+
+/* Force all tables to be dark */
+.table {
+    -fx-background-color: #000000 !important;
+}
+
+.table-cell {
+    -fx-background-color: #000000 !important;
+    -fx-text-fill: #f8f9fa !important;
+    -fx-border-color: #1a1a1a !important;
+}
+
+/* Force all tabs to be dark */
+.tab {
+    -fx-background-color: #1a1a1a !important;
+}
+
+.tab:selected {
+    -fx-background-color: #121212 !important;
+}
+
+/* Force all menus to be dark */
+.menu {
+    -fx-background-color: #1a1a1a !important;
+}
+
+.menu-item {
+    -fx-background-color: #1a1a1a !important;
+    -fx-text-fill: #f8f9fa !important;
+}
+
+/* Force all scrollbars to be dark */
+.scroll-bar {
+    -fx-background-color: #000000 !important;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #333333 !important;
+}
+
+/* Force all progress bars to be dark */
+.progress-bar .track {
+    -fx-background-color: #1a1a1a !important;
+}
+
+.progress-bar .bar {
+    -fx-background-color: #00c853 !important;
+}
+
+/* Force all charts to be dark */
+.chart {
+    -fx-background-color: #000000 !important;
+}
+
+.chart-plot-background {
+    -fx-background-color: #121212 !important;
+}
+
+.axis {
+    -fx-tick-label-fill: #ced4da !important;
+}
+
+/* Force all tooltips to be dark */
+.tooltip {
+    -fx-background-color: #1a1a1a !important;
+    -fx-text-fill: #f8f9fa !important;
+}
+
+/* Force all alerts to be dark */
+.alert {
+    -fx-background-color: #000000 !important;
+}
+
+.alert .header-panel {
+    -fx-background-color: #1a1a1a !important;
+}
+
+.alert .content {
+    -fx-background-color: #000000 !important;
+    -fx-text-fill: #f8f9fa !important;
+}
+
+/* Force all dialogs to be dark */
+.dialog-pane {
+    -fx-background-color: #000000 !important;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #1a1a1a !important;
+}
+
+.dialog-pane .content {
+    -fx-background-color: #000000 !important;
+    -fx-text-fill: #f8f9fa !important;
+}
+
+/* Force all context menus to be dark */
+.context-menu {
+    -fx-background-color: #1a1a1a !important;
+}
+
+.context-menu .menu-item {
+    -fx-background-color: #1a1a1a !important;
+    -fx-text-fill: #f8f9fa !important;
+}
+
+.context-menu .menu-item:hover {
+    -fx-background-color: #2a2a2a !important;
+}
+
+/* Force all date pickers to be dark */
+.date-picker {
+    -fx-background-color: #121212 !important;
+}
+
+.date-picker-popup {
+    -fx-background-color: #1a1a1a !important;
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: #1a1a1a !important;
+    -fx-text-fill: #f8f9fa !important;
+}
+
+.date-picker-popup .day-cell:selected {
+    -fx-background-color: #00c853 !important;
+    -fx-text-fill: #000000 !important;
+}
+
+/* Force all color pickers to be dark */
+.color-picker {
+    -fx-background-color: #121212 !important;
+}
+
+.color-palette {
+    -fx-background-color: #1a1a1a !important;
+}
+
+/* Force all accordions to be dark */
+.accordion {
+    -fx-background-color: #000000 !important;
+}
+
+.accordion .titled-pane {
+    -fx-background-color: #1a1a1a !important;
+}
+
+.accordion .titled-pane .title {
+    -fx-background-color: #1a1a1a !important;
+}
+
+.accordion .titled-pane .title .text {
+    -fx-text-fill: #f8f9fa !important;
+}
+
+.accordion .titled-pane .content {
+    -fx-background-color: #000000 !important;
+}
+
+/* Force all spinners to be dark */
+.spinner {
+    -fx-background-color: #121212 !important;
+}
+
+.spinner .increment-arrow-button, .spinner .decrement-arrow-button {
+    -fx-background-color: #1a1a1a !important;
+}
+
+.spinner .text-field {
+    -fx-background-color: #121212 !important;
+}
+
+/* Force all pagination controls to be dark */
+.pagination {
+    -fx-background-color: #000000 !important;
+}
+
+.pagination .page {
+    -fx-background-color: #1a1a1a !important;
+    -fx-text-fill: #f8f9fa !important;
+}
+
+.pagination .page:selected {
+    -fx-background-color: #00c853 !important;
+    -fx-text-fill: #000000 !important;
+}
+
+/* Force all HTML editors to be dark */
+.html-editor {
+    -fx-background-color: #000000 !important;
+}
+
+.html-editor .tool-bar {
+    -fx-background-color: #1a1a1a !important;
+}
+
+.html-editor .button {
+    -fx-background-color: #1a1a1a !important;
+    -fx-text-fill: #f8f9fa !important;
+}
+
+/* Force all media views to be dark */
+.media-view {
+    -fx-background-color: #000000 !important;
+}
+
+.media-view .control-bar {
+    -fx-background-color: #1a1a1a !important;
+}
+
+/* Force all web views to be dark */
+.web-view {
+    -fx-background-color: #000000 !important;
+}
+
+/* Force all embedded browsers to be dark */
+.browser {
+    -fx-background-color: #000000 !important;
+}
+
+/* Final override to ensure everything is dark */
+* {
+    -fx-background: #000000 !important;
+    -fx-background-color: #000000 !important;
+}
+
+/* Final override to ensure all text is light */
+* {
+    -fx-text-fill: #f8f9fa !important;
+    -fx-fill: #f8f9fa !important;
+    -fx-stroke: #f8f9fa !important;
+}

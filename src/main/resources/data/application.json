@@ -1,0 +1,8 @@
+{
+  "database": {
+    "path": "ecohabit.db",
+    "version": "1.0"
+  },
+  "theme": "dark",
+  "language": "en"
+}

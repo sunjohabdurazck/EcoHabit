@@ -1,0 +1,541 @@
+/* src\main\resources\css\style.css */
+
+/* ===== ROOT VARIABLES ===== */
+.root {
+    /* Color Palette - Eco-friendly theme */
+    -eco-primary: #2E8B57;         /* Sea Green */
+    -eco-secondary: #3CB371;       /* Medium Sea Green */
+    -eco-accent: #8FBC8F;          /* Dark Sea Green */
+    -eco-light: #F1F8F5;           /* Very light green */
+    -eco-dark: #1A3C2A;            /* Dark green */
+    
+    /* Neutral colors */
+    -neutral-light: #F8F9FA;
+    -neutral-medium: #E9ECEF;
+    -neutral-dark: #343A40;
+    
+    /* Status colors */
+    -success: #28A745;
+    -warning: #FFC107;
+    -danger: #DC3545;
+    -info: #17A2B8;
+}
+
+/* ===== BASE STYLES ===== */
+* {
+    -fx-font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* ===== COMMON COMPONENT STYLES ===== */
+
+/* Buttons */
+.button {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0, 0, 3);
+}
+
+.button:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0, 0, 1);
+}
+
+.primary-btn {
+    -fx-background-color: -eco-primary;
+    -fx-text-fill: white;
+}
+
+.primary-btn:hover {
+    -fx-background-color: derive(-eco-primary, -10%);
+}
+
+.secondary-btn {
+    -fx-background-color: -neutral-medium;
+    -fx-text-fill: -neutral-dark;
+}
+
+.secondary-btn:hover {
+    -fx-background-color: derive(-neutral-medium, -10%);
+}
+
+.danger-btn {
+    -fx-background-color: -danger;
+    -fx-text-fill: white;
+}
+
+.danger-btn:hover {
+    -fx-background-color: derive(-danger, -10%);
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-font-size: 14;
+    -fx-padding: 12 15;
+}
+
+.nav-button:hover, .nav-button.active {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 6;
+}
+
+/* Text Fields */
+.text-field, .password-field, .combo-box {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 10 12;
+    -fx-background-color: white;
+    -fx-border-color: -neutral-medium;
+    -fx-border-width: 1;
+}
+
+.text-field:focused, .password-field:focused, .combo-box:focused {
+    -fx-border-color: -eco-primary;
+    -fx-effect: dropshadow(gaussian, rgba(46, 139, 87, 0.2), 4, 0, 0, 0);
+}
+
+/* Labels */
+.title-large {
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+    -fx-text-fill: -eco-dark;
+}
+
+.title-medium {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-text-fill: -eco-dark;
+}
+
+.subtitle {
+    -fx-font-size: 16;
+    -fx-text-fill: derive(-eco-dark, 30%);
+}
+
+.body-text {
+    -fx-font-size: 14;
+    -fx-text-fill: -neutral-dark;
+}
+
+.accent-text {
+    -fx-font-size: 14;
+    -fx-text-fill: -eco-primary;
+    -fx-font-weight: bold;
+}
+
+/* Cards and Containers */
+.glass-card, .metric-card, .stats-card {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 20;
+}
+
+.glass-sidebar {
+    -fx-background-color: linear-gradient(to bottom, -eco-primary, -eco-secondary);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 0);
+}
+
+/* Progress Bars */
+.progress-bar {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.progress-bar .track {
+    -fx-background-color: -neutral-medium;
+    -fx-background-radius: 10;
+}
+
+.progress-bar .bar {
+    -fx-background-color: -eco-primary;
+    -fx-background-radius: 10;
+}
+
+.modern-progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, -eco-secondary, -eco-primary);
+}
+
+/* ===== SCREEN-SPECIFIC STYLES ===== */
+
+/* LOGIN SCREEN */
+.login-main-container {
+    -fx-background-color: linear-gradient(to right, -eco-light, white);
+}
+
+.login-branding-panel {
+    -fx-background-color: linear-gradient(to bottom, -eco-primary, -eco-secondary);
+}
+
+.login-form-panel {
+    -fx-background-color: white;
+}
+
+.login-btn-primary {
+    -fx-background-color: -eco-primary;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 12 24;
+}
+
+.login-btn-primary:hover {
+    -fx-background-color: derive(-eco-primary, -10%);
+}
+
+.google-signin-btn {
+    -fx-background-color: white;
+    -fx-text-fill: -neutral-dark;
+    -fx-border-color: -neutral-medium;
+    -fx-border-width: 1;
+    -fx-background-radius: 8;
+}
+
+/* DASHBOARD SCREEN */
+.animated-background {
+    -fx-background-color: -eco-light;
+}
+
+.floating-action-button {
+    -fx-background-color: -eco-primary;
+    -fx-text-fill: white;
+    -fx-background-radius: 50%;
+    -fx-min-width: 50;
+    -fx-min-height: 50;
+    -fx-max-width: 50;
+    -fx-max-height: 50;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+/* CHATBOT SCREEN */
+.chat-area {
+    -fx-background-color: -eco-light;
+}
+
+.chat-container {
+    -fx-background-color: transparent;
+}
+
+.message-input {
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 12 20;
+}
+
+.send-button {
+    -fx-background-color: -eco-primary;
+    -fx-text-fill: white;
+    -fx-background-radius: 20;
+    -fx-padding: 12 24;
+}
+
+.quick-action-btn {
+    -fx-background-color: rgba(46, 139, 87, 0.1);
+    -fx-text-fill: -eco-primary;
+    -fx-border-color: -eco-primary;
+    -fx-border-width: 1;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+.quick-action-btn:hover {
+    -fx-background-color: rgba(46, 139, 87, 0.2);
+}
+
+/* ACTIVITY LOG SCREEN */
+.sidebar {
+    -fx-background-color: -eco-light;
+    -fx-border-color: derive(-eco-light, -10%);
+    -fx-border-width: 0 1 0 0;
+}
+
+.add-activity-form {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+}
+
+/* BADGES SCREEN */
+.badges-grid {
+    -fx-background-color: transparent;
+}
+
+.badge-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 6, 0, 0, 2);
+    -fx-padding: 20;
+    -fx-alignment: center;
+}
+
+.badge-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(46, 139, 87, 0.3), 10, 0, 0, 4);
+}
+
+/* TIPS SCREEN */
+.tip-of-day-container {
+    -fx-background-color: linear-gradient(to right, -eco-primary, -eco-secondary);
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 3);
+}
+
+.tip-of-day-header, .tip-of-day-content {
+    -fx-text-fill: white;
+}
+
+/* SETTINGS SCREEN */
+.settings-section {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0, 0, 2);
+}
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: -neutral-dark;
+    -fx-alignment: center-left;
+    -fx-padding: 12 15;
+    -fx-border-width: 0;
+}
+
+.sidebar-btn:hover, .sidebar-btn.active {
+    -fx-background-color: rgba(46, 139, 87, 0.1);
+    -fx-text-fill: -eco-primary;
+}
+
+/* CHARTS SCREEN */
+.chart-container {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);
+}
+
+.chart-title {
+    -fx-text-fill: -eco-dark;
+    -fx-font-weight: bold;
+}
+
+.chart {
+    -fx-background-color: transparent;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+.chart-series-line {    
+    -fx-stroke-width: 2;
+}
+
+.default-color0.chart-series-line { -fx-stroke: -eco-primary; }
+.default-color1.chart-series-line { -fx-stroke: -eco-secondary; }
+.default-color2.chart-series-line { -fx-stroke: -eco-accent; }
+
+.default-color0.chart-line-symbol { -fx-background-color: -eco-primary, white; }
+.default-color1.chart-line-symbol { -fx-background-color: -eco-secondary, white; }
+.default-color2.chart-line-symbol { -fx-background-color: -eco-accent, white; }
+
+/* Pie chart colors */
+.data0.chart-pie { -fx-pie-color: -eco-primary; }
+.data1.chart-pie { -fx-pie-color: -eco-secondary; }
+.data2.chart-pie { -fx-pie-color: -eco-accent; }
+.data3.chart-pie { -fx-pie-color: derive(-eco-primary, 20%); }
+.data4.chart-pie { -fx-pie-color: derive(-eco-secondary, 20%); }
+
+/* Bar chart colors */
+.default-color0.chart-bar { -fx-bar-fill: -eco-primary; }
+.default-color1.chart-bar { -fx-bar-fill: -eco-secondary; }
+.default-color2.chart-bar { -fx-bar-fill: -eco-accent; }
+
+/* ===== UTILITY CLASSES ===== */
+.text-center {
+    -fx-alignment: center;
+}
+
+.text-left {
+    -fx-alignment: center-left;
+}
+
+.text-right {
+    -fx-alignment: center-right;
+}
+
+/* Notification styles */
+.notification {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 3);
+    -fx-padding: 15;
+    -fx-border-color: -neutral-medium;
+    -fx-border-width: 1;
+}
+
+.notification-success {
+    -fx-border-color: -success;
+    -fx-border-width: 0 0 0 4;
+}
+
+.notification-error {
+    -fx-border-color: -danger;
+    -fx-border-width: 0 0 0 4;
+}
+
+.notification-warning {
+    -fx-border-color: -warning;
+    -fx-border-width: 0 0 0 4;
+}
+
+/* Form elements */
+.form-input {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 10 12;
+    -fx-background-color: white;
+    -fx-border-color: -neutral-medium;
+    -fx-border-width: 1;
+}
+
+.form-input:focused {
+    -fx-border-color: -eco-primary;
+}
+
+/* Badge styles */
+.badge {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 20;
+    -fx-padding: 5 12;
+}
+
+/* ScrollPane styling */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical,
+.scroll-pane .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical .track,
+.scroll-pane .scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb,
+.scroll-pane .scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+    -fx-background-radius: 10;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:hover,
+.scroll-pane .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+}
+
+.error-container {
+    -fx-background-color: #ffebee;
+    -fx-border-color: #f44336;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+}
+
+.error-text {
+    -fx-text-fill: #d32f2f;
+    -fx-font-weight: bold;
+}
+
+.success-container {
+    -fx-background-color: #e8f5e8;
+    -fx-border-color: #4caf50;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+}
+
+.success-text {
+    -fx-text-fill: #2e7d32;
+    -fx-font-weight: bold;
+}
+
+.info-container {
+    -fx-background-color: #e3f2fd;
+    -fx-border-color: #2196f3;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+}
+
+.info-text {
+    -fx-text-fill: #1565c0;
+    -fx-font-weight: bold;
+}
+/* TEAM PROFILE SPECIFIC STYLES */
+.team-profile-container {
+    -fx-background-color: -eco-light;
+}
+
+.team-member-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-alignment: top-center;
+}
+
+.team-member-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(46, 139, 87, 0.3), 15, 0, 0, 5);
+    -fx-translate-y: -5;
+}
+
+.member-image {
+    -fx-effect: dropshadow(gaussian, rgba(46, 139, 87, 0.3), 10, 0.5, 0, 0);
+}
+
+.member-name {
+    -fx-text-fill: -eco-dark;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0 5 0;
+}
+
+.member-id {
+    -fx-text-fill: -eco-primary;
+    -fx-font-size: 14px;
+    -fx-padding: 0 0 10 0;
+}
+
+.contact-label {
+    -fx-text-fill: derive(-eco-dark, 30%);
+    -fx-font-size: 12px;
+}
+
+.contact-value {
+    -fx-text-fill: -neutral-dark;
+    -fx-font-size: 14px;
+}
+
+.error-text {
+    -fx-text-fill: #dc3545;
+    -fx-font-weight: bold;
+}
+
+.form-input:error {
+    -fx-border-color: #dc3545;
+    -fx-border-width: 2px;
+}
+
+.form-combo:error {
+    -fx-border-color: #dc3545;
+    -fx-border-width: 2px;
+}

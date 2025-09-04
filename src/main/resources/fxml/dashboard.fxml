@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.ecohabit.controller.DashboardController">
+   
+
+   
+   <!-- MAIN CONTENT AREA -->
+   <center>
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" style="-fx-background-color: transparent;">
+         <content>
+            <VBox spacing="25.0" styleClass="animated-background">
+               <padding>
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+               </padding>
+               <children>
+                  <!-- HEADER SECTION -->
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                             <Label fx:id="userNameLabel" text="Welcome back! 👋" styleClass="title-large" />
+                              <Label fx:id="dateLabel" text="Today • March 15, 2024" styleClass="subtitle" />
+                           </children>
+                        </VBox>
+                        
+                        <!-- QUICK ADD BUTTON -->
+                        <Button fx:id="quickAddBtn" text="+" styleClass="floating-action-button" />
+                     </children>
+                  </HBox>
+                  
+                  <!-- TODAY'S STATS ROW -->
+                  <HBox spacing="20.0" alignment="CENTER">
+                     <children>
+                        <!-- TODAY'S SAVINGS -->
+                        <VBox spacing="10.0" styleClass="metric-card" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Today's Savings" styleClass="subtitle" />
+                              <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                 <children>
+                                    <Label fx:id="todayCO2Label" text="12.5" styleClass="title-medium">
+                                       <textFill>
+                                         <Color red="1.0" green="1.0" blue="1.0" />
+                                       </textFill>
+                                    </Label>
+                                    <Label text="kg CO₂" styleClass="body-text">
+                                       <textFill>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </textFill>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <Label text="+15% from yesterday" styleClass="body-text">
+                                 <textFill>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </textFill>
+                              </Label>
+                           </children>
+                        </VBox>
+                        
+                        <!-- ACTIVITIES COUNT -->
+                        <VBox spacing="10.0" styleClass="stats-card" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Activities Logged" styleClass="subtitle" />
+                              <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                 <children>
+                                    <Label fx:id="activitiesCountLabel" text="8" styleClass="title-medium" />
+                                    <Label text="actions" styleClass="body-text" />
+                                 </children>
+                              </HBox>
+                              <Label text="Great progress!" styleClass="accent-text" />
+                           </children>
+                        </VBox>
+                        
+                        <!-- WEEKLY GOAL PROGRESS -->
+                        <VBox spacing="10.0" styleClass="stats-card" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Weekly Goal" styleClass="subtitle" />
+                              <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                 <children>
+                                    <Label text="78%" styleClass="title-medium" />
+                                    <Label text="complete" styleClass="body-text" />
+                                 </children>
+                              </HBox>
+                              <ProgressBar fx:id="weeklyProgressBar" progress="0.78" prefWidth="200.0" styleClass="modern-progress-bar" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  
+                  <!-- CHARTS SECTION -->
+                  <GridPane hgap="20.0" vgap="20.0">
+                     <children>
+                        <!-- WEEKLY TREND CHART -->
+                        <VBox spacing="15.0" styleClass="glass-card" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2">
+                           <children>
+                              <Label text="CO₂ Savings This Week" styleClass="title-medium" />
+                              <AreaChart fx:id="weeklyChart" prefHeight="300.0" styleClass="chart">
+                                 <xAxis>
+                                    <CategoryAxis />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis />
+                                 </yAxis>
+                              </AreaChart>
+                           </children>
+                        </VBox>
+                        
+                        <!-- ACTIVITY BREAKDOWN -->
+                        <VBox spacing="15.0" styleClass="glass-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Activity Breakdown" styleClass="title-medium" />
+                              <PieChart fx:id="activityPieChart" prefHeight="250.0" styleClass="chart" />
+                           </children>
+                        </VBox>
+                        
+                        <!-- RECENT ACHIEVEMENTS -->
+                        <VBox spacing="15.0" styleClass="glass-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Recent Achievements" styleClass="title-medium" />
+                              <VBox fx:id="achievementsContainer" spacing="10.0">
+                                 <children>
+                                    <!-- ACHIEVEMENT ITEMS -->
+                                    <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="achievement-card">
+                                       <children>
+                                          <Circle radius="20.0" fill="#38ef7d" />
+                                          <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label text="Green Commuter" styleClass="subtitle" />
+                                                <Label text="Biked to work 5 times" styleClass="body-text" />
+                                             </children>
+                                          </VBox>
+                                          <Label text="🚴‍♂️" styleClass="title-medium" />
+                                       </children>
+                                    </HBox>
+                                    
+                                    <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="achievement-card">
+                                       <children>
+                                          <Circle radius="20.0" fill="#ff6b9d" />
+                                          <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label text="Plastic-Free Hero" styleClass="subtitle" />
+                                                <Label text="No single-use plastics this week" styleClass="body-text" />
+                                             </children>
+                                          </VBox>
+                                          <Label text="♻️" styleClass="title-medium" />
+                                       </children>
+                                    </HBox>
+                                    
+                                    <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="achievement-card">
+                                       <children>
+                                          <Circle radius="20.0" fill="#bb86fc" />
+                                          <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label text="Energy Saver" styleClass="subtitle" />
+                                                <Label text="Reduced energy usage by 20%" styleClass="body-text" />
+                                             </children>
+                                          </VBox>
+                                          <Label text="⚡" styleClass="title-medium" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </GridPane>
+                  
+                  <!-- QUICK ACTIONS SECTION -->
+                  <VBox spacing="20.0" styleClass="glass-card">
+                     <children>
+                        <Label text="Quick Actions" styleClass="title-medium" />
+                        
+                        <!-- QUICK ADD FORM -->
+                        <HBox spacing="15.0" alignment="CENTER_LEFT">
+                           <children>
+                              <TextField fx:id="quickActivityField" promptText="What eco-friendly action did you take?" styleClass="modern-text-field" HBox.hgrow="ALWAYS" prefHeight="45.0" />
+                              <Button fx:id="addActivityBtn" text="Add Activity" styleClass="primary-button" prefHeight="45.0" />
+                           </children>
+                        </HBox>
+                        
+                        <!-- SUGGESTED ACTIONS -->
+                        <VBox spacing="12.0">
+                           <children>
+                              <Label text="Suggested for you:" styleClass="subtitle" />
+                              <FlowPane hgap="10.0" vgap="10.0">
+                                 <children>
+                                    <Button text="🚴‍♂️ Bike to work" styleClass="modern-button" />
+                                    <Button text="♻️ Recycled materials" styleClass="modern-button" />
+                                    <Button text="💡 Used LED lights" styleClass="modern-button" />
+                                    <Button text="🥤 Reusable bottle" styleClass="modern-button" />
+                                    <Button text="🌱 Plant-based meal" styleClass="modern-button" />
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  
+                  <!-- ECO TIP OF THE DAY -->
+                  <HBox spacing="20.0" styleClass="stats-card">
+                     <children>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="💡 Eco Tip of the Day" styleClass="title-medium" />
+                              <Label fx:id="dailyTipLabel" text="Switching to cold water for washing clothes can save up to 90% of the energy used by your washing machine!" 
+                                     styleClass="body-text" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="nextTipBtn" text="Next Tip" styleClass="modern-button" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+   
+   <!-- FLOATING NOTIFICATIONS AREA -->
+   <top>
+      <VBox fx:id="notificationContainer" alignment="TOP_RIGHT" spacing="10.0" visible="false">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="30.0" top="30.0" />
+         </padding>
+      </VBox>
+   </top>
+</BorderPane>

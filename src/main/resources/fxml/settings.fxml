@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.ecohabit.controller.SettingsController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="header">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <Label styleClass="header-title" text="Settings" />
+         <Region HBox.hgrow="ALWAYS" />
+         <HBox spacing="10.0">
+            <Button fx:id="exportDataBtn" styleClass="quick-action-btn" text="Export Data" />
+            <Button fx:id="backupBtn" styleClass="quick-action-btn" text="Create Backup" />
+         </HBox>
+      </HBox>
+   </top>
+   
+   <left>
+      <VBox spacing="5.0" styleClass="sidebar">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <Label styleClass="sidebar-header" text="Settings" />
+         <Separator />
+         <Button fx:id="profileSettingsBtn" styleClass="sidebar-btn active" text="Profile Settings" />
+         <Button fx:id="appearanceBtn" styleClass="sidebar-btn" text="Appearance" />
+         <Button fx:id="notificationsBtn" styleClass="sidebar-btn" text="Notifications" />
+         <Button fx:id="dataManagementBtn" styleClass="sidebar-btn" text="Data Management" />
+         <Button fx:id="privacyBtn" styleClass="sidebar-btn" text="Privacy &amp; Security" />
+         <Button fx:id="teamProfileBtn" styleClass="sidebar-btn" text="Team Profile" />
+         <Button fx:id="aboutBtn" styleClass="sidebar-btn" text="About" />
+         <Region VBox.vgrow="ALWAYS" />
+      </VBox>
+   </left>
+   
+   <center>
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+         <content>
+            <VBox spacing="20.0" styleClass="main-content">
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </padding>
+               
+               <!-- Notification Container -->
+               <VBox fx:id="notificationContainer" spacing="10.0" visible="false" />
+               
+               <!-- User Profile Section -->
+               <VBox fx:id="profileSection" spacing="20.0" styleClass="settings-section">
+                  <Label styleClass="section-title" text="User Profile" />
+                  
+                  <!-- User Info Header -->
+                  <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="user-info-header">
+                     <VBox spacing="5.0">
+                        <Label fx:id="userNameLabel" styleClass="user-name" text="John Doe" />
+                        <Label fx:id="userEmailLabel" styleClass="user-email" text="john.doe@example.com" />
+                     </VBox>
+                     <Region HBox.hgrow="ALWAYS" />
+                     <Button fx:id="changePhotoBtn" styleClass="secondary-btn" text="Change Photo" />
+                  </HBox>
+                  
+                  <!-- Profile Form -->
+                  <GridPane hgap="20.0" vgap="15.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                     </columnConstraints>
+                     
+                     <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                     <TextField fx:id="firstNameField" promptText="Enter first name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                     
+                     <Label text="Last Name:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                     <TextField fx:id="lastNameField" promptText="Enter last name" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                     
+                     <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                     <TextField fx:id="emailField" promptText="Enter email address" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     
+                     <Label text="Age:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                     <TextField fx:id="ageField" promptText="Enter age" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                     
+                     <Label text="Gender:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                     <ComboBox fx:id="genderComboBox" prefWidth="250.0" promptText="Select gender" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     
+                     <Label text="Location:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                     <TextField fx:id="locationField" promptText="Enter location" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  </GridPane>
+                  
+                  <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                     <Button fx:id="resetProfileBtn" styleClass="secondary-btn" text="Reset" />
+                     <Button fx:id="saveProfileBtn" styleClass="primary-btn" text="Save Profile" />
+                  </HBox>
+                  
+                  <Separator />
+                  
+                  <!-- Lifestyle Preferences -->
+                  <Label styleClass="subsection-title" text="Lifestyle Preferences" />
+                  <GridPane hgap="20.0" vgap="15.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                     </columnConstraints>
+                     
+                     <Label text="Diet Type:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                     <ComboBox fx:id="dietComboBox" prefWidth="250.0" promptText="Select diet type" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                     
+                     <Label text="Transportation:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                     <ComboBox fx:id="transportComboBox" prefWidth="250.0" promptText="Select transport method" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                     
+                     <Label text="User Type:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                     <ComboBox fx:id="userTypeComboBox" prefWidth="250.0" promptText="Select user type" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     
+                     <Label text="Daily Goal (kg CO2):" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                     <TextField fx:id="dailyGoalField" promptText="Enter daily CO2 goal" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  </GridPane>
+                  
+                  <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                     <Button fx:id="resetLifestyleBtn" styleClass="secondary-btn" text="Reset" />
+                     <Button fx:id="saveLifestyleBtn" styleClass="primary-btn" text="Save Lifestyle" />
+                  </HBox>
+               </VBox>
+               
+               <!-- Appearance Settings Section -->
+               <VBox fx:id="appearanceSection" spacing="20.0" styleClass="settings-section" visible="false">
+                  <Label styleClass="section-title" text="Appearance" />
+                  
+                  <!-- Theme Selection -->
+                  <VBox spacing="10.0">
+                     <Label styleClass="subsection-title" text="Theme" />
+                     <VBox spacing="10.0">
+                        <RadioButton fx:id="lightThemeRadio" text="Light Theme - Clean and bright interface" />
+                        <RadioButton fx:id="darkThemeRadio" text="Dark Theme - Easy on the eyes" />
+                        <RadioButton fx:id="ecoThemeRadio" selected="true" text="Eco Theme - Nature-inspired colors" />
+                        <RadioButton fx:id="systemThemeRadio" text="System Theme - Follow system preference" />
+                     </VBox>
+                  </VBox>
+                  
+                  <!-- Font Size -->
+                  <VBox spacing="10.0">
+                     <Label styleClass="subsection-title" text="Font Size" />
+                     <HBox alignment="CENTER_LEFT" spacing="20.0">
+                        <Label text="Small" />
+                        <Slider fx:id="fontSizeSlider" max="24.0" min="10.0" value="14.0" showTickMarks="true" showTickLabels="true" majorTickUnit="2.0" minorTickCount="1" />
+                        <Label text="Large" />
+                        <Label fx:id="fontSizePreviewLabel" text="Preview Text" styleClass="font-preview" />
+                     </HBox>
+                  </VBox>
+                  
+                  <!-- Language -->
+                  <VBox spacing="10.0">
+                     <Label styleClass="subsection-title" text="Language" />
+                     <HBox spacing="15.0">
+                        <Label text="Language:" />
+                        <ComboBox fx:id="languageComboBox" prefWidth="200.0" />
+                        <Button fx:id="applyLanguageBtn" styleClass="secondary-btn" text="Apply" />
+                     </HBox>
+                  </VBox>
+                  
+                  <!-- Accessibility -->
+                  <VBox spacing="10.0">
+                     <Label styleClass="subsection-title" text="Accessibility" />
+                     <CheckBox fx:id="highContrastCheckbox" text="High Contrast Mode" />
+                     <CheckBox fx:id="largeButtonsCheckbox" text="Large Buttons and Controls" />
+                     <CheckBox fx:id="reduceAnimationsCheckbox" text="Reduce Animations" />
+                     <CheckBox fx:id="screenReaderSupportCheckbox" text="Screen Reader Support" />
+                  </VBox>
+                  
+                  <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                     <Button fx:id="resetAppearanceBtn" styleClass="secondary-btn" text="Reset to Default" />
+                     <Button fx:id="previewAppearanceBtn" styleClass="secondary-btn" text="Preview" />
+                     <Button fx:id="saveAppearanceBtn" styleClass="primary-btn" text="Save Appearance" />
+                  </HBox>
+               </VBox>
+               
+               <!-- Notification Settings Section -->
+               <VBox fx:id="notificationsSection" spacing="20.0" styleClass="settings-section" visible="false">
+                  <Label styleClass="section-title" text="Notifications" />
+                  
+                  <!-- Notification Types -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Notification Types" />
+                     <CheckBox fx:id="dailyReminderCheckbox" selected="true" text="Daily Activity Reminders" />
+                     <CheckBox fx:id="weeklySummaryCheckbox" selected="true" text="Weekly Progress Summary" />
+                     <CheckBox fx:id="achievementCheckbox" selected="true" text="Achievement &amp; Badge Notifications" />
+                     <CheckBox fx:id="ecoTipsCheckbox" selected="true" text="Daily Eco Tips" />
+                     <CheckBox fx:id="goalCheckbox" selected="true" text="Goal Progress Updates" />
+                     <CheckBox fx:id="socialCheckbox" text="Social Activity Updates" />
+                     <CheckBox fx:id="updateCheckbox" selected="true" text="App Updates &amp; News" />
+                  </VBox>
+                  
+                  <!-- Notification Schedule -->
+                  <VBox spacing="10.0">
+                     <Label styleClass="subsection-title" text="Schedule" />
+                     <GridPane hgap="15.0" vgap="10.0">
+                        <columnConstraints>
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                        </columnConstraints>
+                        
+                        <Label text="Daily Reminder Time:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Spinner fx:id="reminderTimeSpinner" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        
+                        <Label text="Quiet Hours Start:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        <Spinner fx:id="quietHoursStartSpinner" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                        
+                        <Label text="Weekly Summary Day:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="weeklySummaryDayComboBox" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        
+                        <Label text="Quiet Hours End:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Spinner fx:id="quietHoursEndSpinner" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                     </GridPane>
+                     <CheckBox fx:id="weekendsOnlyCheckbox" text="Send notifications only on weekdays" />
+                  </VBox>
+                  
+                  <!-- Sound Settings -->
+                  <VBox spacing="10.0">
+                     <Label styleClass="subsection-title" text="Sound &amp; Alerts" />
+                     <HBox alignment="CENTER_LEFT" spacing="20.0">
+                        <Label text="Notification Sound:" />
+                        <ComboBox fx:id="soundComboBox" prefWidth="200.0" promptText="Select sound" />
+                        <Button fx:id="playSoundBtn" styleClass="secondary-btn" text="Play" />
+                     </HBox>
+                     <HBox alignment="CENTER_LEFT" spacing="20.0">
+                        <Label text="Volume:" />
+                        <Slider fx:id="volumeSlider" max="100.0" min="0.0" value="50.0" showTickMarks="true" prefWidth="200.0" />
+                        <CheckBox fx:id="vibrateCheckbox" text="Vibrate (mobile)" />
+                     </HBox>
+                  </VBox>
+                  
+                  <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                     <Button fx:id="testNotificationBtn" styleClass="secondary-btn" text="Test Notification" />
+                     <Button fx:id="resetNotificationBtn" styleClass="secondary-btn" text="Reset" />
+                     <Button fx:id="saveNotificationBtn" styleClass="primary-btn" text="Save Notifications" />
+                  </HBox>
+               </VBox>
+               
+               <!-- Data Management Section -->
+               <VBox fx:id="dataSection" spacing="20.0" styleClass="settings-section" visible="false">
+                  <Label styleClass="section-title" text="Data Management" />
+                  
+                  <!-- Export Options -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Export Data" />
+                     <VBox spacing="10.0">
+                        <Label text="Export your EcoHabit data for backup or analysis purposes." />
+                        <HBox spacing="15.0">
+                           <Button fx:id="exportCSVBtn" styleClass="secondary-btn" text="Export as CSV" />
+                           <Button fx:id="exportJSONBtn" styleClass="secondary-btn" text="Export as JSON" />
+                           <Button fx:id="exportPDFBtn" styleClass="secondary-btn" text="Export Report (PDF)" />
+                        </HBox>
+                        <VBox spacing="5.0">
+                           <Label text="Export Options:" styleClass="small-label" />
+                           <CheckBox fx:id="exportActivitiesCheckbox" selected="true" text="Activity Log" />
+                           <CheckBox fx:id="exportStatsCheckbox" selected="true" text="Statistics &amp; Charts" />
+                           <CheckBox fx:id="exportBadgesCheckbox" selected="true" text="Badges &amp; Achievements" />
+                           <CheckBox fx:id="exportSettingsCheckbox" text="Settings &amp; Preferences" />
+                        </VBox>
+                     </VBox>
+                  </VBox>
+                  
+                  <!-- Import Options -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Import Data" />
+                     <Label text="Import data from another EcoHabit installation or compatible format." />
+                     <HBox spacing="15.0">
+                        <Button fx:id="importDataBtn" styleClass="secondary-btn" text="Import Data" />
+                        <Button fx:id="importCSVBtn" styleClass="secondary-btn" text="Import CSV" />
+                     </HBox>
+                  </VBox>
+                  
+                  <!-- Backup Options -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Backup &amp; Restore" />
+                     <Label text="Create full backups of your data and restore from previous backups." />
+                     <HBox spacing="15.0">
+                        <Button fx:id="backupDataBtn" styleClass="secondary-btn" text="Create Backup" />
+                        <Button fx:id="restoreDataBtn" styleClass="secondary-btn" text="Restore Data" />
+                        <Button fx:id="scheduleBackupBtn" styleClass="secondary-btn" text="Schedule Backups" />
+                     </HBox>
+                     <VBox spacing="5.0">
+                        <CheckBox fx:id="autoBackupCheckbox" text="Enable automatic daily backups" />
+                        <HBox spacing="10.0">
+                           <Label text="Keep backups for:" />
+                           <ComboBox fx:id="backupRetentionComboBox" prefWidth="150.0" />
+                        </HBox>
+                     </VBox>
+                  </VBox>
+                  
+                  <!-- Storage Information -->
+                  <VBox spacing="10.0">
+                     <Label styleClass="subsection-title" text="Storage Information" />
+                     <GridPane hgap="20.0" vgap="10.0">
+                        <columnConstraints>
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                        </columnConstraints>
+                        
+                        <Label text="Total Activities:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label fx:id="totalActivitiesLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        
+                        <Label text="Data Size:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label fx:id="dataSizeLabel" text="0 MB" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        
+                        <Label text="Last Backup:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label fx:id="lastBackupLabel" text="Never" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </GridPane>
+                  </VBox>
+                  
+                  <!-- Clear Data -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Clear Data" />
+                     <Label text="Warning: These actions cannot be undone. Please create a backup first." styleClass="warning-text" />
+                     <HBox spacing="15.0">
+                        <Button fx:id="clearActivitiesBtn" styleClass="warning-btn" text="Clear Activities" />
+                        <Button fx:id="clearStatsBtn" styleClass="warning-btn" text="Clear Statistics" />
+                        <Button fx:id="clearDataBtn" styleClass="danger-btn" text="Clear All Data" />
+                     </HBox>
+                  </VBox>
+               </VBox>
+               
+               <!-- Privacy & Security Section -->
+               <VBox fx:id="privacySection" spacing="20.0" styleClass="settings-section" visible="false">
+                  <Label styleClass="section-title" text="Privacy &amp; Security" />
+                  
+                  <!-- Account Security -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Account Security" />
+                     <GridPane hgap="20.0" vgap="15.0">
+                        <columnConstraints>
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                        </columnConstraints>
+                        
+                        <Label text="Current Password:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <PasswordField fx:id="currentPasswordField" promptText="Enter current password" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        
+                        <Label text="New Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <PasswordField fx:id="newPasswordField" promptText="Enter new password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        
+                        <Label text="Confirm Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <PasswordField fx:id="confirmPasswordField" promptText="Confirm new password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </GridPane>
+                     <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <Button fx:id="changePasswordBtn" styleClass="primary-btn" text="Change Password" />
+                        <Button fx:id="generatePasswordBtn" styleClass="secondary-btn" text="Generate Strong Password" />
+                     </HBox>
+                     <VBox spacing="5.0">
+                        <CheckBox fx:id="twoFactorCheckbox" text="Enable Two-Factor Authentication (2FA)" />
+                        <CheckBox fx:id="loginAlertsCheckbox" text="Email alerts for new login sessions" />
+                     </VBox>
+                  </VBox>
+                  
+                  <!-- Privacy Settings -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Privacy Settings" />
+                     <VBox spacing="10.0">
+                        <CheckBox fx:id="dataCollectionCheckbox" text="Allow anonymous usage data collection for app improvement" />
+                        <CheckBox fx:id="personalizedAdsCheckbox" text="Show personalized eco-tips and recommendations" />
+                        <CheckBox fx:id="shareStatsCheckbox" text="Share anonymized environmental impact statistics" />
+                        <CheckBox fx:id="locationTrackingCheckbox" text="Allow location-based features (weather, local tips)" />
+                        <CheckBox fx:id="crashReportsCheckbox" selected="true" text="Send crash reports to help improve the app" />
+                     </VBox>
+                  </VBox>
+                  
+                  <!-- Data Rights -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Data Rights" />
+                     <HBox spacing="15.0">
+                        <Button fx:id="downloadDataBtn" styleClass="secondary-btn" text="Download My Data" />
+                        <Button fx:id="viewDataBtn" styleClass="secondary-btn" text="View Data Usage" />
+                        <Button fx:id="privacyPolicyBtn" styleClass="secondary-btn" text="Privacy Policy" />
+                     </HBox>
+                  </VBox>
+                  
+                  <!-- Session Management -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Session Management" />
+                     <HBox spacing="15.0">
+                        <Button fx:id="logoutAllDevicesBtn" styleClass="warning-btn" text="Logout All Devices" />
+                        <Button fx:id="viewActiveSessionsBtn" styleClass="secondary-btn" text="View Active Sessions" />
+                     </HBox>
+                     <CheckBox fx:id="rememberLoginCheckbox" selected="true" text="Remember me on this device" />
+                  </VBox>
+                  
+                  <!-- Account Actions -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Account Actions" />
+                     <Label text="Warning: Account deletion is permanent and cannot be undone." styleClass="warning-text" />
+                     <HBox spacing="15.0">
+                        <Button fx:id="deactivateAccountBtn" styleClass="warning-btn" text="Deactivate Account" />
+                        <Button fx:id="deleteAccountBtn" styleClass="danger-btn" text="Delete Account" />
+                     </HBox>
+                  </VBox>
+               </VBox>
+               
+               <!-- Team Profile Section -->
+               <VBox fx:id="teamProfileSection" spacing="20.0" styleClass="settings-section" visible="false">
+                  <Label styleClass="section-title" text="Team Profile" />
+                  
+                  <Label text="Team GreenSpark" styleClass="title-large" style="-fx-text-fill: -eco-primary;" />
+                  <Label text="Islamic University of Technology Bangladesh - Batch 22" styleClass="subtitle" />
+                  
+                  <HBox spacing="30" alignment="TOP_CENTER">
+                     <!-- Member 1 Card -->
+                     <VBox fx:id="member1Card" styleClass="glass-card">
+                         <ImageView fx:id="member1Image" fitWidth="150" fitHeight="150" style="-fx-effect: dropshadow(gaussian, rgba(100,255,218,0.5), 10, 0.5, 0, 0);">
+                             <clip>
+                                 <Circle radius="75" centerX="75" centerY="75" />
+                             </clip>
+                         </ImageView>
+                         <Label fx:id="member1Name" styleClass="title-medium" />
+                         <Label fx:id="member1Id" styleClass="accent-text" />
+                         <VBox spacing="5" style="-fx-padding: 10 0 0 0;">
+                             <Label text="Phone:" styleClass="subtitle" />
+                             <Label fx:id="member1Phone" styleClass="body-text" />
+                             
+                             <Label text="Facebook:" styleClass="subtitle" style="-fx-padding: 10 0 0 0;" />
+                             <Label fx:id="member1Facebook" styleClass="body-text" />
+                             
+                             <Label text="GitHub:" styleClass="subtitle" style="-fx-padding: 10 0 0 0;" />
+                             <Label fx:id="member1Github" styleClass="body-text" />
+                         </VBox>
+                     </VBox>
+                     
+                     <!-- Member 2 Card -->
+                     <VBox fx:id="member2Card" styleClass="glass-card">
+                         <ImageView fx:id="member2Image" fitWidth="150" fitHeight="150" style="-fx-effect: dropshadow(gaussian, rgba(100,255,218,0.5), 10, 0.5, 0, 0);">
+                             <clip>
+                                 <Circle radius="75" centerX="75" centerY="75" />
+                             </clip>
+                         </ImageView>
+                         <Label fx:id="member2Name" styleClass="title-medium" />
+                         <Label fx:id="member2Id" styleClass="accent-text" />
+                         <VBox spacing="5" style="-fx-padding: 10 0 0 0;">
+                             <Label text="Phone:" styleClass="subtitle" />
+                             <Label fx:id="member2Phone" styleClass="body-text" />
+                             
+                             <Label text="Facebook:" styleClass="subtitle" style="-fx-padding: 10 0 0 0;" />
+                             <Label fx:id="member2Facebook" styleClass="body-text" />
+                             
+                             <Label text="GitHub:" styleClass="subtitle" style="-fx-padding: 10 0 0 0;" />
+                             <Label fx:id="member2Github" styleClass="body-text" />
+                         </VBox>
+                     </VBox>
+                     
+                     <!-- Member 3 Card -->
+                     <VBox fx:id="member3Card" styleClass="glass-card">
+                         <ImageView fx:id="member3Image" fitWidth="150" fitHeight="150" style="-fx-effect: dropshadow(gaussian, rgba(100,255,218,0.5), 10, 0.5, 0, 0);">
+                             <clip>
+                                 <Circle radius="75" centerX="75" centerY="75" />
+                             </clip>
+                         </ImageView>
+                         <Label fx:id="member3Name" styleClass="title-medium" />
+                         <Label fx:id="member3Id" styleClass="accent-text" />
+                         <VBox spacing="5" style="-fx-padding: 10 0 0 0;">
+                             <Label text="Phone:" styleClass="subtitle" />
+                             <Label fx:id="member3Phone" styleClass="body-text" />
+                             
+                             <Label text="Facebook:" styleClass="subtitle" style="-fx-padding: 10 0 0 0;" />
+                             <Label fx:id="member3Facebook" styleClass="body-text" />
+                             
+                             <Label text="GitHub:" styleClass="subtitle" style="-fx-padding: 10 0 0 0;" />
+                             <Label fx:id="member3Github" styleClass="body-text" />
+                         </VBox>
+                     </VBox>
+                  </HBox>
+               </VBox>
+               
+               <!-- About Section -->
+               <VBox fx:id="aboutSection" spacing="20.0" styleClass="settings-section" visible="false">
+                  <Label styleClass="section-title" text="About EcoHabit" />
+                  
+                  <!-- App Information -->
+                  <VBox spacing="15.0">
+                     <HBox alignment="CENTER_LEFT" spacing="20.0">
+                        <VBox spacing="5.0">
+                           <Label styleClass="app-title" text="EcoHabit" />
+                           <Label fx:id="versionLabel" text="Version 1.0.0" />
+                           <Label fx:id="buildLabel" text="Build 2024.1.1" />
+                           <Label text="Your personal environmental tracking companion" wrapText="true" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <VBox alignment="CENTER">
+                           <Label text="🌱" styleClass="app-logo" />
+                        </VBox>
+                     </HBox>
+                  </VBox>
+                         
+                  <!-- System Information -->
+                  <VBox spacing="10.0">
+                     <Label styleClass="subsection-title" text="System Information" />
+                     <GridPane hgap="20.0" vgap="10.0">
+                        <columnConstraints>
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+                        </columnConstraints>
+                        
+                        <Label text="Java Version:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label fx:id="javaVersionLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        
+                        <Label text="Operating System:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label fx:id="osLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        
+                        <Label text="Database Version:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label fx:id="dbVersionLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        
+                        <Label text="Install Date:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Label fx:id="installDateLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </GridPane>
+                  </VBox>
+                  
+                  <!-- Support & Feedback -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Support &amp; Feedback" />
+                     <HBox spacing="15.0" alignment="CENTER_LEFT">
+                        <Button fx:id="websiteBtn" styleClass="secondary-btn" text="Visit Website" />
+                        <Button fx:id="feedbackBtn" styleClass="secondary-btn" text="Send Feedback" />
+                        <Button fx:id="supportBtn" styleClass="secondary-btn" text="Get Support" />
+                     </HBox>
+                     <HBox spacing="15.0" alignment="CENTER_LEFT">
+                        <Button fx:id="rateAppBtn" styleClass="secondary-btn" text="Rate App" />
+                        <Button fx:id="shareAppBtn" styleClass="secondary-btn" text="Share App" />
+                        <Button fx:id="donateBtn" styleClass="secondary-btn" text="Support Development" />
+                     </HBox>
+                  </VBox>
+                  
+                  <!-- Updates -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Updates" />
+                     <HBox spacing="15.0" alignment="CENTER_LEFT">
+                        <Button fx:id="checkUpdatesBtn" styleClass="secondary-btn" text="Check for Updates" />
+                        <Button fx:id="updateHistoryBtn" styleClass="secondary-btn" text="Update History" />
+                        <CheckBox fx:id="autoUpdateCheckbox" selected="true" text="Automatically check for updates" />
+                     </HBox>
+                     <Label fx:id="lastUpdateCheckLabel" text="Last checked: Never" styleClass="small-label" />
+                  </VBox>
+                  
+                  <!-- Legal -->
+                  <VBox spacing="15.0">
+                     <Label styleClass="subsection-title" text="Legal" />
+                     <HBox spacing="15.0" alignment="CENTER_LEFT">
+                        <Button fx:id="licensesBtn" styleClass="secondary-btn" text="Open Source Licenses" />
+                        <Button fx:id="termsBtn" styleClass="secondary-btn" text="Terms of Service" />
+                        <Button fx:id="privacyPolicyAboutBtn" styleClass="secondary-btn" text="Privacy Policy" />
+                     </HBox>
+                  </VBox>
+                  
+                  <!-- Credits -->
+                  <VBox spacing="10.0">
+                     <Label styleClass="subsection-title" text="Credits" />
+                     <Label text="Developed with ❤️ for the environment" />
+                     <Label text="Special thanks to our beta testers and the open source community" />
+                     <TextArea fx:id="creditsTextArea" editable="false" prefRowCount="4" 
+                              text="• JavaFX Framework&#10;• SQLite Database&#10;• Chart.js Library&#10;• Weather API Integration&#10;• Icon pack by EcoIcons" />
+                  </VBox>
+               </VBox>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

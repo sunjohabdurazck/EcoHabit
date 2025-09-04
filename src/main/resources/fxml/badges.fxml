@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.ecohabit.controller.BadgesController">
+   <top>
+      <!-- Header Section with Statistics -->
+      <VBox styleClass="header-section">
+         <!-- Statistics Bar -->
+         <HBox alignment="CENTER" spacing="30" styleClass="statistics-bar">
+            <padding>
+               <Insets bottom="15" left="20" right="20" top="15" />
+            </padding>
+            
+            <!-- Total Badges -->
+            <VBox alignment="CENTER" spacing="5" styleClass="stat-box">
+               <Label fx:id="totalBadgesLabel" styleClass="stat-number" text="13" />
+               <Label styleClass="stat-label" text="Total Badges" />
+            </VBox>
+            
+            <!-- Earned Badges -->
+            <VBox alignment="CENTER" spacing="5" styleClass="stat-box">
+               <Label fx:id="earnedBadgesLabel" styleClass="stat-number" text="5" />
+               <Label styleClass="stat-label" text="Earned" />
+            </VBox>
+            
+            <!-- Completion Percentage -->
+            <VBox alignment="CENTER" spacing="5" styleClass="stat-box">
+               <Label fx:id="completionPercentageLabel" styleClass="stat-number" text="38.5%" />
+               <Label styleClass="stat-label" text="Complete" />
+            </VBox>
+            
+            <!-- Recent Badge -->
+            <VBox alignment="CENTER" spacing="5" styleClass="stat-box">
+               <Label fx:id="recentBadgeLabel" styleClass="stat-number" text="Energy Saver" />
+               <Label styleClass="stat-label" text="Recent Badge" />
+            </VBox>
+            
+            <!-- Overall Progress -->
+            <VBox alignment="CENTER" spacing="8" styleClass="progress-section">
+               <Label styleClass="progress-title" text="Overall Progress" />
+               <ProgressBar fx:id="overallProgressBar" prefWidth="200" progress="0.385" styleClass="overall-progress" />
+            </VBox>
+         </HBox>
+         
+         <!-- Filter and Search Controls -->
+         <HBox alignment="CENTER_LEFT" spacing="15" styleClass="filter-bar">
+            <padding>
+               <Insets bottom="15" left="20" right="20" top="10" />
+            </padding>
+            
+            <!-- Category Filter -->
+            <VBox spacing="3">
+               <Label styleClass="filter-label" text="Category" />
+               <ComboBox fx:id="categoryFilterComboBox" prefWidth="150" promptText="All Categories" styleClass="filter-combo" />
+            </VBox>
+            
+            <!-- Status Filter -->
+            <VBox spacing="3">
+               <Label styleClass="filter-label" text="Status" />
+               <ComboBox fx:id="statusFilterComboBox" prefWidth="120" promptText="All Status" styleClass="filter-combo" />
+            </VBox>
+            
+            <!-- Sort By -->
+            <VBox spacing="3">
+               <Label styleClass="filter-label" text="Sort By" />
+               <ComboBox fx:id="sortByComboBox" prefWidth="130" promptText="Date Earned" styleClass="filter-combo" />
+            </VBox>
+            
+            <!-- Search -->
+            <VBox spacing="3">
+               <Label styleClass="filter-label" text="Search" />
+               <HBox spacing="5">
+                  <TextField fx:id="searchField" prefWidth="200" promptText="Search badges..." styleClass="search-field" />
+                  <Button fx:id="searchBtn" styleClass="search-button" text="🔍" />
+               </HBox>
+            </VBox>
+            
+            <Region HBox.hgrow="ALWAYS" />
+            
+            <!-- Filter Actions -->
+            <HBox spacing="8">
+               <Button fx:id="applyFiltersBtn" styleClass="filter-action-btn" text="Apply" />
+               <Button fx:id="clearFiltersBtn" styleClass="filter-action-btn secondary" text="Clear" />
+            </HBox>
+         </HBox>
+      </VBox>
+   </top>
+
+   <left>
+      <!-- Sidebar -->
+      <VBox prefWidth="300" styleClass="badges-sidebar">
+         <padding>
+            <Insets bottom="20" left="15" right="15" top="20" />
+         </padding>
+         
+         <!-- Featured Badge Section -->
+         <VBox fx:id="featuredBadgeContainer" spacing="15" styleClass="featured-badge-section">
+            <Label styleClass="sidebar-title" text="Featured Badge" />
+            
+            <VBox alignment="CENTER" spacing="12" styleClass="featured-badge-card">
+               <padding>
+                  <Insets bottom="15" left="15" right="15" top="15" />
+               </padding>
+               
+               <Label fx:id="featuredBadgeIcon" styleClass="featured-badge-icon" text="🚲" />
+               <Label fx:id="featuredBadgeTitle" alignment="CENTER" styleClass="featured-badge-title" text="Transport Master" wrapText="true" />
+               <Label fx:id="featuredBadgeDescription" alignment="CENTER" styleClass="featured-badge-description" text="Use eco-friendly transport 50 times" wrapText="true" />
+               
+               <VBox spacing="5">
+                  <ProgressBar fx:id="featuredBadgeProgress" prefWidth="200" progress="0.7" styleClass="featured-progress" />
+                  <Label fx:id="featuredBadgeProgressText" alignment="CENTER" styleClass="featured-progress-text" text="35 / 50 (70%)" />
+               </VBox>
+               
+               <Button fx:id="focusBadgeBtn" styleClass="focus-badge-btn" text="Focus on This" />
+            </VBox>
+         </VBox>
+         
+         <Separator />
+         
+         <!-- Quick Stats Section -->
+         <VBox spacing="15" styleClass="quick-stats-section">
+            <Label styleClass="sidebar-title" text="Category Stats" />
+            
+            <VBox spacing="10">
+               <HBox alignment="CENTER_LEFT" spacing="10">
+                  <Label styleClass="stat-icon" text="🌍" />
+                  <VBox spacing="2">
+                     <Label styleClass="category-stat-label" text="Carbon Saver" />
+                     <Label fx:id="carbonSaverBadgesLabel" styleClass="category-stat-number" text="2" />
+                  </VBox>
+               </HBox>
+               
+               <HBox alignment="CENTER_LEFT" spacing="10">
+                  <Label styleClass="stat-icon" text="💪" />
+                  <VBox spacing="2">
+                     <Label styleClass="category-stat-label" text="Activity Master" />
+                     <Label fx:id="activityMasterBadgesLabel" styleClass="category-stat-number" text="3" />
+                  </VBox>
+               </HBox>
+               
+               <HBox alignment="CENTER_LEFT" spacing="10">
+                  <Label styleClass="stat-icon" text="🔥" />
+                  <VBox spacing="2">
+                     <Label styleClass="category-stat-label" text="Streak Champion" />
+                     <Label fx:id="streakChampionBadgesLabel" styleClass="category-stat-number" text="1" />
+                  </VBox>
+               </HBox>
+               
+               <HBox alignment="CENTER_LEFT" spacing="10">
+                  <Label styleClass="stat-icon" text="🎉" />
+                  <VBox spacing="2">
+                     <Label styleClass="category-stat-label" text="Special Events" />
+                     <Label fx:id="specialEventBadgesLabel" styleClass="category-stat-number" text="0" />
+                  </VBox>
+               </HBox>
+            </VBox>
+         </VBox>
+         
+         <Separator />
+         
+         <!-- Recent Activity Section -->
+         <VBox spacing="15" styleClass="recent-activity-section">
+            <Label styleClass="sidebar-title" text="Recent Activity" />
+            <ScrollPane fitToWidth="true" maxHeight="200" styleClass="recent-activity-scroll">
+               <VBox fx:id="recentActivityContainer" spacing="8" />
+            </ScrollPane>
+         </VBox>
+         
+         <Region VBox.vgrow="ALWAYS" />
+      </VBox>
+   </left>
+
+   <center>
+      <!-- Main Badges Area -->
+      <VBox styleClass="badges-main-area">
+         <!-- Tabs for Badge Categories -->
+         <TabPane fx:id="badgesTabPane" styleClass="badges-tab-pane" tabClosingPolicy="UNAVAILABLE">
+            
+            <!-- Earned Badges Tab -->
+            <Tab fx:id="earnedTab" styleClass="badges-tab" text="Earned">
+               <ScrollPane fx:id="earnedScrollPane" fitToWidth="true" styleClass="badges-scroll-pane">
+                  <GridPane fx:id="earnedBadgesGrid" styleClass="badges-grid">
+                     <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                     </padding>
+                  </GridPane>
+               </ScrollPane>
+            </Tab>
+            
+            <!-- In Progress Badges Tab -->
+            <Tab fx:id="inProgressTab" styleClass="badges-tab" text="In Progress">
+               <ScrollPane fx:id="inProgressScrollPane" fitToWidth="true" styleClass="badges-scroll-pane">
+                  <VBox fx:id="inProgressContainer" spacing="15" styleClass="progress-badges-container">
+                     <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                     </padding>
+                  </VBox>
+               </ScrollPane>
+            </Tab>
+            
+            <!-- Locked Badges Tab -->
+            <Tab fx:id="lockedTab" styleClass="badges-tab" text="Locked">
+               <ScrollPane fx:id="lockedScrollPane" fitToWidth="true" styleClass="badges-scroll-pane">
+                  <GridPane fx:id="lockedBadgesGrid" styleClass="badges-grid">
+                     <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                     </padding>
+                  </GridPane>
+               </ScrollPane>
+            </Tab>
+            
+            <!-- All Badges Tab -->
+            <Tab fx:id="allBadgesTab" styleClass="badges-tab" text="All Badges">
+               <ScrollPane fx:id="allBadgesScrollPane" fitToWidth="true" styleClass="badges-scroll-pane">
+                  <GridPane fx:id="allBadgesGrid" styleClass="badges-grid">
+                     <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                     </padding>
+                  </GridPane>
+               </ScrollPane>
+            </Tab>
+            
+         </TabPane>
+      </VBox>
+   </center>
+
+   <!-- Achievement Celebration Overlay -->
+   <top>
+      <StackPane>
+         <VBox fx:id="celebrationContainer" alignment="CENTER" managed="false" styleClass="celebration-overlay" visible="false">
+            <!-- Celebration content will be added dynamically -->
+         </VBox>
+      </StackPane>
+   </top>
+</BorderPane>
