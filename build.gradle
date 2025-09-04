@@ -1,0 +1,146 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group = 'main.java.com.ecohabit'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    // JavaFX dependencies (included for modular projects)
+    implementation 'org.openjfx:javafx-controls:19.0.2'
+    implementation 'org.openjfx:javafx-fxml:19.0.2'
+    implementation 'org.openjfx:javafx-graphics:19.0.2'
+    implementation 'org.openjfx:javafx-base:19.0.2'
+    
+    // JSON processing
+    implementation 'com.google.code.gson:gson:2.10.1'
+    
+    // Database
+    implementation 'org.xerial:sqlite-jdbc:3.42.0.0'
+    
+    // Logging
+    implementation 'org.slf4j:slf4j-api:2.0.7'
+    implementation 'ch.qos.logback:logback-classic:1.4.8'
+    
+    // Unit testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
+    testImplementation 'org.testfx:testfx-junit5:4.0.16-alpha'
+    
+    // Optional: Charting libraries if needed
+    implementation 'org.jfree:jfreechart:1.5.4'
+}
+
+javafx {
+    version = "19"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.base' ]
+}
+
+application {
+    mainClass = 'com.ecohabit.MainApp'
+    mainModule = 'com.ecohabit'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+    modularity.inferModulePath = true
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-Xlint:unchecked', '-Xlint:deprecation']
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'com.ecohabit.MainApp',
+            'Implementation-Title': 'EcoHabit',
+            'Implementation-Version': version,
+            'Built-By': System.getProperty('user.name'),
+            'Built-Date': new Date(),
+            'Built-JDK': System.getProperty('java.version')
+        )
+    }
+    
+    // Include all dependencies in the jar (fat jar)
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+shadowJar {
+    archiveBaseName.set('ecohabit')
+    archiveClassifier.set('')
+    archiveVersion.set('')
+    
+    mergeServiceFiles()
+    manifest {
+        attributes 'Main-Class': 'com.ecohabit.MainApp'
+    }
+}
+
+// Create a task to run the application
+task runApp(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.ecohabit.MainApp'
+    jvmArgs = ['--add-opens', 'javafx.graphics/javafx.scene=ALL-UNNAMED']
+}
+
+// Create a task to generate Javadoc
+task generateJavadoc(type: Javadoc) {
+    source = sourceSets.main.allJava
+    destinationDir = file("${buildDir}/docs/javadoc")
+    classpath = sourceSets.main.compileClasspath
+    options {
+        links 'https://docs.oracle.com/en/java/javase/11/docs/api/'
+        links 'https://openjfx.io/javadoc/19/'
+        addBooleanOption('html5', true)
+    }
+}
+
+// Create a task to copy dependencies to lib folder
+task copyDependencies(type: Copy) {
+    from configurations.runtimeClasspath
+    into "${buildDir}/libs"
+}
+
+// Create a distribution task
+task dist(type: Zip) {
+    from jar
+    from configurations.runtimeClasspath
+    into('lib') {
+        from configurations.runtimeClasspath
+    }
+    archiveFileName = "ecohabit-${version}.zip"
+    destinationDirectory = file("${buildDir}/distributions")
+}
+
+// Configure build to always run tests
+build.dependsOn test
+build.dependsOn shadowJar
+build.dependsOn dist
+
+// Clean task extension
+clean {
+    delete fileTree(dir: 'config', includes: ['*.tmp', '*.bak'])
+    delete fileTree(dir: 'exports', includes: ['*.tmp'])
+}
