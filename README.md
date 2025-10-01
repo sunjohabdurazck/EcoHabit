@@ -1,4 +1,5 @@
 🌱 EcoHabit: Track Your Sustainable Journey
+
 https://img.shields.io/badge/Java-17-orange.svg
 https://img.shields.io/badge/JavaFX-19-blue.svg
 https://img.shields.io/badge/SQLite-3.x-lightgrey.svg
@@ -6,8 +7,11 @@ https://img.shields.io/badge/License-MIT-yellow.svg
 
 A desktop application that empowers individuals to track, visualize, and understand their personal environmental impact through gamification and data-driven insights.
 
+<div align="center">
+https://via.placeholder.com/800x400?text=EcoHabit+Dashboard+Preview
 Visualize your sustainability journey with interactive dashboards
 
+</div>
 ✨ Features
 🎯 Core Functionality
 🌍 Carbon Footprint Tracking: Log daily activities and see real-time CO₂ savings calculations
